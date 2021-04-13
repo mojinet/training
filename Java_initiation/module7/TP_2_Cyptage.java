@@ -1,7 +1,5 @@
-package fr.modji.exercice.module7;
+package Java_initiation.module7;
 
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.Scanner;
 
 public class TP_2_Cyptage {

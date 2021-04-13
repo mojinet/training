@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="img/mymusic_logo.png" type="image/x-icon">
+    <title>My Music | Abonnement</title>
+</head>
+<body>
+
+    <!--Header-->
+    <header>
+        <!--Logo & title-->
+        <div>
+            <img src="img/mymusic_logo.png" alt="logo my music">
+            <h1>My Music</h1>
+        </div>
+        <!--My acount-->
+        <div>
+            <span>Jean-Baptiste ENI, connecté</span> <br>
+            <a href="#">Mon Compte</a> | <a href="#">Déconnexion</a> <br>
+        </div>
+        <!--Form example-->
+        <div>
+            <span>Exemple Formulaire</span> <br>
+            <a href="#">ENI ECOLE</a> <br>
+            <a href="mailto:contact@eni-ecole.fr">Copyright&copy; ENI ECOLE Informatique</a> <br>
+        </div>
+    </header>
+
+    <!--Main Section : Form-->
+    <section>
+        <form name="form-abo" action="#" method="POST">
+            <fieldset>
+                <span>Mon compte</span>
+                <!--User info-->
+                <fieldset>
+                    <legend>Vos informations personnelles</legend>
+
+                    <label for="lastname">Nom : </label>
+                    <input type="text" name="lastname" id="lastname" placeholder="votre nom"> <br>
+
+                    <label for="name">Prénom : </label>
+                    <input type="text" name="name" id="name" placeholder="votre prénom"> <br>
+
+                    <label for="email">Email : </label>
+                    <input type="email" name="email" id="email" placeholder="votre e-mail"> <br>
+
+                    <label for="password">Mot de passe : </label>
+                    <input type="password" name="password" id="password" placeholder="votre mot de passe"> <br>
+
+                    <label for="birthday">Date de naissance : </label> 
+                    <input type="date" name="birthday" id="birthday"> <br>
+
+                    <label for="bestGroup">Votre groupe préféré : </label> 
+                    <select name="bestGroup" id="bestGroup">
+                        <option value="metalica">Métalica</option>
+                        <option value="opeth">Opeth</option>
+                        <option value="gojira">Gojira</option>
+                        <option value="other">Autre</option>
+                    </select> <br>
+
+                    <label for="phone">Téléphone : </label> 
+                    <input type="tel" name="phone" id="phone" placeholder="votre numéro de telephone"> <br>
+
+                    <label for="password-confirm">Confirmer le mot de passe : </label> 
+                    <input type="password" name="password-confirm" id="password-confirm" placeholder="Quel mot de passe ?">
+
+                </fieldset>
+                <!--subscription-->
+                <fieldset>
+                    <legend>Votre formule d'abonnement</legend>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    
+                                </th>
+                                <th>
+                                    <input type="radio" name="subscriptionSelect" />
+                                    <label for="premiumPlus">Premium +</label>
+                                </th>
+                                <th>
+                                    <input type="radio" name="subscriptionSelect" />
+                                    <label for="premium">Premium</label>
+                                </th>
+                                <th>
+                                    <input type="radio" id="rb-discovery" name="subscriptionSelect" />
+                                    <label for="discovery">Discovery</label>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Accès web</th>
+                                <td><img src="img/icon-ok-32x32.png" alt="image validé" /></td>
+                                <td><img src="img/icon-ok-32x32.png" alt="image validé" /></td>
+                                <td><img src="img/icon-ok-32x32.png" alt="image validé" /></td>
+                            </tr>
+                            <tr>
+                                <th>Accès mobile</th>
+                                <td><img src="img/icon-ok-32x32.png" alt="image validé" /></td>
+                                <td><img src="img/icon-ok-32x32.png" alt="image validé" /></td>
+                                <td><img src="img/icon-not-ok-32x32.png" alt="image non validé" /></td>
+                            </tr>
+                            <tr>
+                                <th>Ecoute illimité</th>
+                                <td><img src="img/icon-ok-32x32.png" alt="image validé" /></td>
+                                <td><img src="img/icon-not-ok-32x32.png" alt="image non validé" /></td>
+                                <td><img src="img/icon-not-ok-32x32.png" alt="image non validé" /></td>
+                            </tr>
+                            <tr>
+                                <th>Tarifs</th>
+                                <td>11,99€/mois</td>
+                                <td>5,99€/mois</td>
+                                <td>Gratuit 1 mois</td>
+                            </tr>
+                            <tr>
+                                <th></th>
+                                <td colspan="3">
+                                    <input id="newsletter" type="checkbox" />
+                                    <label for="newsletter">Recevoir nos newsletters</label>
+                                    <input id="otherNews" type="checkbox" />
+                                    <label for="otherNews">Recevoir les newsletters de nos partenaires</label>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+            </fieldset>
+            <input type="reset" value="Annuler">
+            <input type="submit" value="Valider">
+        </form>
+    </section>
+</body>
+</html>

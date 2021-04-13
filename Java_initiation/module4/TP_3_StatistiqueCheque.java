@@ -1,4 +1,4 @@
-package fr.modji.exercice.module4;
+package Java_initiation.module4;
 
 import java.util.Scanner;
 
@@ -55,6 +55,8 @@ public class TP_3_StatistiqueCheque {
 		System.out.println("Montant TOTAL des cheques supérieur ou egal à 200€ : " + superieurEgalA200Cumul);
 		System.out.println("le plus petit cheque est le Numéro " + minNum + " pour une valeur de " + minValue);
 		System.out.println("le plus grand cheque est le Numéro " + maxNum + " pour une valeur de " + maxValue);
+		scan.close();
 	}
+	
 
 }

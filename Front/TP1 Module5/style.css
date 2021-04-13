@@ -1,0 +1,45 @@
+/*GENERAL*/
+body{
+    background: grey;
+}
+
+/*HEADER*/
+.main-header{
+    margin: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    color: white;
+}
+
+.header-icon{
+    display: inline-block;
+}
+
+.acount-zone-avatar{
+    float: left;
+}
+
+/*MAIN SECTION*/
+.main-section .img-band{
+    float: left;
+    margin: 0 10px 10px 0;
+}
+
+.main-section{
+    text-align: justify;
+}
+
+hr{
+    clear: both;
+}
+
+.info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.link-article-link{
+    display: block;
+}

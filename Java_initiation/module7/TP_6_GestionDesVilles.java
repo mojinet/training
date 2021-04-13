@@ -1,4 +1,4 @@
-package fr.modji.exercice.module7;
+package Java_initiation.module7;
 
 public class TP_6_GestionDesVilles {
 	

@@ -1,4 +1,4 @@
-package fr.modji.exercice.module7;
+package Java_initiation.module7;
 
 import java.util.Scanner;
 
@@ -6,7 +6,6 @@ public class TP_5_Palindromes {
 
 	public static void main(String[] args) {
 		String texte, texteSansEspace = "";
-		String[] arrayOfTexte;
 		String texteReverse = "";
 		Scanner scan = new Scanner(System.in);
 		
@@ -26,7 +25,7 @@ public class TP_5_Palindromes {
 		}else {
 			System.out.println("Ce n'est PAS un palindrome !");
 		}
-		
+		scan.close();
 	}
 
 	private static String reverse(String texte) {

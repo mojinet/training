@@ -1,4 +1,4 @@
-package fr.modji.exercice.module4;
+package Java_initiation.module4;
 
 import java.util.Scanner;
 
