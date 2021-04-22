@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Gloria Hallelujah', cursive;
+}
+
+.row {
+    width: calc(10 * 50px);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.case {
+    height: 50px;
+    border: 3px solid black;
+    width: 100%;
+    background-color: white;
+    cursor: url(cursor.png), pointer ;
+}
+
+#l-picker {
+    display: flex;
+    flex-direction: row;
+    width: 350px;
+    justify-content: space-around;
+}
+
+.color {
+    width: 50px;
+    height: 50px;
+    border: 5px dashed black;
+    cursor: url(cursor.png), pointer ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+}
+
+.color:nth-child(1) {
+    background-color: red;
+}
+
+.color:nth-child(2) {
+    background-color: green;
+}
+
+.color:nth-child(3) {
+    background-color: blue;
+}
+
+.color:nth-child(4) {
+    background-color: white;
+    color : black;
+}
+
+.color:nth-child(5) {
+    background-color: black;
+}
+.content {
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #000;
+    height: 100vh;
+}
+
+.left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    width: 50%;
+    color: white;
+    background-color: rgb(54, 51, 65);
+    height: 100vh;
+    margin:0;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 100vh;
+    background-color: rgb(181, 193, 214);
+}
+
+.l-footer {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    background-color: rgb(39, 35, 49);
+    color: white;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+button {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px dashed #000;
+    background-color: rgb(37, 33, 56);
+    color: white;
+    font-family: 'Gloria Hallelujah', cursive;
+    cursor: url(cursor.png), pointer ;
+}
+
+fieldset {
+    border: none;
+}

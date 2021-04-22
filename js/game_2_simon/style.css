@@ -1,0 +1,57 @@
+body{
+    background-color: rgb(41, 9, 70);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    color : white;
+    font-family: 'Cinzel Decorative', cursive;
+}
+
+
+#board{
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    width: 324px;
+}
+
+.case{
+    width: 150px;
+    height: 150px;
+    border: 1px solid black;
+    margin: 5px;
+}
+
+button{
+    font-family: 'Cinzel Decorative', cursive;
+    padding: 10px 20px;
+    background-color: rgb(133, 20, 20);
+    border-radius: 10px;
+    font-size: 1.5em;
+    color: white;
+    border: 1px solid white;
+}
+
+#userInfo{
+    font-size: 3em;
+    display: none;
+}
+
+.boxInfo{
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
+.case:nth-child(1){ background-color: rgb(184, 66, 66); border-radius: 50px 0 10px 0;}
+.case:nth-child(2){ background-color: rgb(47, 47, 158); border-radius: 0 50px 0 10px;}
+.case:nth-child(3){ background-color: rgb(204, 204, 30); border-radius: 0 10px 0 50px;}
+.case:nth-child(4){ background-color: rgb(32, 184, 32); border-radius: 10px 0 50px 0;}
+.case:nth-child(1):hover{ background-color: rgb(255, 0, 0);}
+.case:nth-child(2):hover{ background-color: rgb(0, 0, 255);}
+.case:nth-child(3):hover{ background-color: rgb(255, 255, 0);}
+.case:nth-child(4):hover{ background-color: rgb(0, 255, 0);}

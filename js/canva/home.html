@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <div class="left">
+            <canvas id="canvas" width="500" height="500"></canvas> <br>
+        </div>
+        <div class="right">
+            <fieldset>
+                <legend>Draw a rectangle</legend>
+                <h3>Position</h3>
+                <label for="x">x :</label>
+                <input type="range" name="x" id="x" min="0" max="260" step="20">
+                <label for="y">y :</label>
+                <input type="range" name="y" id="y" min="0" max="260" step="20">
+                <h3>Size</h3>
+                <label for="w">width :</label>
+                <input type="range" name="w" id="w" min="20" max="260" step="20">
+                <label for="h">height :</label>
+                <input type="range" name="h" id="h" min="20" max="260" step="20">
+                <h3>Option</h3>
+                <label for="color">Color</label>
+                <input type="color" name="color" id="color">
+                <button id="render">Render !</button>  
+            </fieldset>
+            
+        </div>
+    </main>
+    
+
+
+    
+    <script src="script.js"></script>
+</body>
+</html>

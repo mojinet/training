@@ -1,0 +1,26 @@
+body{
+    user-select: none;
+    background-color: teal;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-family: 'Architects Daughter', cursive;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+#drag{
+    cursor : grab;
+}
+#drop{
+
+}

@@ -1,0 +1,17 @@
+body{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    color:white;
+    background: url('bg.png') no-repeat rgb(15, 55, 70) top;
+}
+#canvas{
+    background-color: rgb(22, 77, 97);
+    border: 5px dashed #000;
+}
+.hidden{
+    display: none;
+}
