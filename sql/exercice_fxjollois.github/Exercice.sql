@@ -282,10 +282,61 @@ HAVING total = 1
 
 -- d : Lister les fonctions pour lesquelles la moyenne d'âge des employés dépasse les 45 ans
 
---Partie 5
+--Partie 5 : TODO
+-- a :Donner la quantité totale commandée par les clients, pour chaque produit
+
+-- b :Donner les cinq clients avec le plus de commandes, triés par ordre décroissant
+
+-- c : Calculer le montant total des lignes d'achats de chaque commande, sans et avec remise sur les produits
+
+-- d :Pour chaque catégorie avec au moins 10 produits, calculer le montant moyen des prix
+
+-- e :Donner le numéro de l'employé ayant fait le moins de commandes
 
 ---------------------------------------------------------
 -- 4 - 
+---------------------------------------------------------
+--Partie 1
+-- a : Récupérer les informations des fournisseurs pour chaque produit
+SELECT 
+    p.nomProd AS Produit,
+    f.societe AS Fournisseur
+FROM produit p
+    NATURAL JOIN fournisseur f
+    
+-- b : Afficher les informations des commandes du client "Lazy K Kountry Store"
+SELECT 
+    cl.societe AS Client,
+    co.nocom AS Commande,
+    nomprod AS Article
+FROM commande co
+    NATURAL JOIN client cl
+    NATURAL JOIN detailCommande dc
+    NATURAL JOIN produit
+    
+-- c : Afficher le nombre de commande pour chaque messager (en indiquant son nom)
+SELECT 
+    nomMess AS Messager,
+    COUNT(*) AS total
+FROM commande c
+    NATURAL JOIN messager m
+GROUP BY messager
+
+--Partie 2
+-- a : Récupérer les informations des fournisseurs pour chaque produit, avec une jointure interne
+
+-- b : Afficher les informations des commandes du client "Lazy K Kountry Store", avec une jointure interne
+
+-- c : Afficher le nombre de commande pour chaque messager (en indiquant son nom), avec une jointure interne
+
+-- d : Afficher pour chaque employé le nom et le prénom de son responsable
+
+--Partie 3
+--Partie 4
+--Partie 5
+
+---------------------------------------------------------
+-- 5 - 
 ---------------------------------------------------------
 --Partie 1
 -- a :
@@ -300,18 +351,15 @@ HAVING total = 1
 --Partie 5
 
 ---------------------------------------------------------
--- 5 - 
----------------------------------------------------------
---Partie 1
---Partie 2
---Partie 3
---Partie 4
---Partie 5
-
----------------------------------------------------------
 -- 6 - 
 ---------------------------------------------------------
 --Partie 1
+-- a :
+-- b :
+-- c : 
+-- d :
+-- e :
+-- f :
 --Partie 2
 --Partie 3
 --Partie 4
@@ -321,6 +369,12 @@ HAVING total = 1
 -- Recapitulatif 1 
 ---------------------------------------------------------
 --Partie 1
+-- a :
+-- b :
+-- c : 
+-- d :
+-- e :
+-- f :
 --Partie 2
 --Partie 3
 --Partie 4
@@ -330,6 +384,12 @@ HAVING total = 1
 -- Recapitulatif 2
 ---------------------------------------------------------
 --Partie 1
+-- a :
+-- b :
+-- c : 
+-- d :
+-- e :
+-- f :
 --Partie 2
 --Partie 3
 --Partie 4
