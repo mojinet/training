@@ -282,6 +282,7 @@ HAVING total = 1
 
 -- d : Lister les fonctions pour lesquelles la moyenne d'âge des employés dépasse les 45 ans
 
+       
 --Partie 5 : TODO
 -- a :Donner la quantité totale commandée par les clients, pour chaque produit
 
@@ -354,9 +355,65 @@ FROM employe e
     INNER JOIN employe e2 ON e.noEmp = e2.rendCompteA 
        
 --Partie 3
+-- a : Compter pour chaque produit, le nombre de commandes où il apparaît, même pour ceux dans aucune commande
+SELECT 
+    refprod AS reference,
+    COUNT (dc.refprod) AS total
+FROM produit p
+    LEFT OUTER JOIN detailCommande dc USING (refProd)
+GROUP BY p.refProd
+       
+-- b : Lister les produits n'apparaissant dans aucune commande
+SELECT 
+    refprod AS reference,
+    COUNT (dc.refprod) AS total
+FROM produit p
+    LEFT OUTER JOIN detailCommande dc USING (refProd)
+GROUP BY p.refProd
+HAVING total = 0
+       
+-- c : Existe-t'il un employé n'ayant enregistré aucune commande ?
+SELECT 
+    nom || ' ' ||prenom AS Employe,
+    count(noCom) AS total
+FROM employe
+    LEFT OUTER JOIN commande USING(noEmp)
+GROUP BY employe
+HAVING total = 0
+       
 --Partie 4
+-- a : Récupérer les informations des fournisseurs pour chaque produit, avec jointure à la main
+SELECT 
+    f.societe,
+    p.nomProd
+FROM fournisseur f, produit p
+WHERE f.noFour = p.noFour
+       
+-- b : Afficher les informations des commandes du client "Lazy K Kountry Store", avec jointure à la main
+SELECT
+    *
+FROM client c, commande co
+WHERE c.codeCli = co.codeCli 
+    AND c.societe = "Lazy K Kountry Store"
+       
+-- c : Afficher le nombre de commande pour chaque messager (en indiquant son nom), avec jointure à la main
+SELECT
+    m.nomMess,
+    COUNT(c.noCom) as total
+FROM messager m, commande c
+GROUP BY nomMess
+       
 --Partie 5
-
+-- a : Compter le nombre de produits par fournisseur
+       
+-- b : Compter le nombre de produits par pays d'origine des fournisseurs
+       
+-- c : Compter pour chaque employé le nombre de commandes gérées, même pour ceux n'en ayant fait aucune
+       
+-- d : Afficher le nombre de pays différents des clients pour chaque employe (en indiquant son nom et son prénom)
+       
+-- e : Compter le nombre de produits commandés pour chaque client pour chaque catégorie
+     
 ---------------------------------------------------------
 -- 5 - 
 ---------------------------------------------------------
