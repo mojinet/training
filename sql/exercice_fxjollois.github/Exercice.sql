@@ -437,7 +437,6 @@ WHERE noFour = (
 )
 
 -- c : Nombre de commandes passées par des employés sous la responsabilité de "Patrick Emery"
--- TODO NE FONCTIONNE PAS
 SELECT
     noEmp AS Employé,
     COUNT(*) AS Total 
