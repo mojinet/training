@@ -1,80 +1,59 @@
-import java.awt.*;
 import java.util.GregorianCalendar;
 import java.util.Locale;
+import java.util.Scanner;
 
 public class TP2 {
     public static void main(String[] args) {
-        GregorianCalendar gc = new GregorianCalendar();  // Get new GregorianCalendar
+        GregorianCalendar gc = new GregorianCalendar();  // Get actual date
+        displayCalendar(gc);                             // Display the calendar of the current month/year
+        askNewMonth(gc);                                 // Ask a month who displaying to user
+
+    }
+
+    /**
+     * Ask a month to user and display this with displayCalendar()
+     * @param gc
+     */
+    private static void askNewMonth(GregorianCalendar gc) {
+        System.out.print("Choose a new month ( between 1 and 12 ) : ");
+        Scanner scan = new Scanner(System.in);
+        int monthChoice = scan.nextInt()-1;
+        scan.close();
+        gc.set(GregorianCalendar.MONTH, monthChoice);
         displayCalendar(gc);
     }
 
+    /**
+     * Display calendar of the month
+     * @param gc who is date in GregorianCalendar
+     */
     private static void displayCalendar(GregorianCalendar gc) {
-        // On initialise notre instance de GregorianCalendar au 1er du mois
-        gc.set(gc.get(GregorianCalendar.YEAR), gc.get(GregorianCalendar.MONTH), 1);
+        gc.set(gc.get(GregorianCalendar.YEAR), gc.get(GregorianCalendar.MONTH), 1);                                         // init the month on the first day
+        String month = gc.getDisplayName(GregorianCalendar.MONTH, GregorianCalendar.LONG_FORMAT, Locale.FRANCE);            // Current month in french
+        int year = gc.get(GregorianCalendar.YEAR);                                                                          // Current Year
+        int firstDayPosition = gc.get(GregorianCalendar.DAY_OF_WEEK) == 1 ? 7 : gc.get(GregorianCalendar.DAY_OF_WEEK) - 1;  // Day of week of the first day
+        int dayInMonth = gc.getActualMaximum(GregorianCalendar.DAY_OF_MONTH);                                               // Days max in the current month
+        String newLine = System.getProperty("line.separator");                                                              // Get separator
+        StringBuilder str = new StringBuilder();                                                                            // Response builder
 
-        // On recupere les différente infos utiles de gc
-        String month = gc.getDisplayName(GregorianCalendar.MONTH, GregorianCalendar.LONG_FORMAT, Locale.FRANCE);
-        String day = gc.getDisplayName(GregorianCalendar.DAY_OF_WEEK, GregorianCalendar.LONG_FORMAT, Locale.FRANCE);
-        int year = gc.get(GregorianCalendar.YEAR);
-
-        // autre variables
-        int dayPosition;
-        String currentNumber;
-
-        // définie la premiere position du 1er du mois
-        // connaitre la position de départ en fonction du jour
-        switch (day){
-            case "lundi" :
-                dayPosition = 0;
-                break;
-            case "mardi" :
-                dayPosition = 1;
-                break;
-            case "mercredi" :
-                dayPosition = 2;
-                break;
-            case "jeudi" :
-                dayPosition = 3;
-                break;
-            case "vendredi" :
-                dayPosition = 4;
-                break;
-            case "samedi" :
-                dayPosition = 5;
-                break;
-            case "dimanche" :
-                dayPosition = 6;
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + day);
-        }
-
-        StringBuilder str = new StringBuilder();
-        for (int i = 0; i < dayPosition; i++) {
+        // Add space for all day before the first day of month
+        for (int i = 0; i < firstDayPosition - 1; i++) {
             str.append("   ");
         }
 
-        // affichage du calendrier
-        int dayInMonth = 30; //TODO le calcul
-        GregorianCalendar gcTest = new GregorianCalendar();
-        String dayTest = "";
-        String newLine = System.getProperty("line.separator"); // recupere le caractere de séparation de ligne
-
-        for (int i = 1; i < dayInMonth; i++) {
+        // Make a line with number of day, when day is sunday make a new line
+        for (int i = 1; i <= dayInMonth; i++) {
             str.append(String.format("%02d ", i));
-            // on test si on est dimanche un retour a la ligne
-            gcTest.set(year,GregorianCalendar.MONTH,i);
-            System.out.println(i + " " + dayTest);
-            dayTest = gcTest.getDisplayName(GregorianCalendar.DAY_OF_WEEK, GregorianCalendar.LONG_FORMAT, Locale.FRANCE);
-            if( dayTest.equals("dimanche") ){
+            gc.set(GregorianCalendar.DAY_OF_MONTH, i);
+            if( gc.get(GregorianCalendar.DAY_OF_WEEK) == 1 ){
                 str.append(newLine);
             }
         }
 
-        // Affiche dans la sortie standard
+        // Displays response
         System.out.println( " * " + month + " " + year + " *");
         System.out.println("L  Ma Me J  V  S  D");
         System.out.printf(str.toString());
-
+        System.out.println();
     }
 }
