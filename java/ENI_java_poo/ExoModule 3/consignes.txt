@@ -1,0 +1,43 @@
+Petit exercice pour valider les connaissances sur le module 3
+
+On va créer nos premières maisons en Java :)
+
+Pour ce faire, l'idée est pour commencer de :
+
+ * Créer une classe Maison
+ * Lui définir les attributs suivants : adresse, code postal, ville, surface, nombre de porte, nombre de fenêtre, estAVendre. Prendre le type de donnée le plus adapté pour chaque attribut. Faites en sorte que ces attributs ne soient accessible uniquement au sein de la classe ( Notion de visibilité )
+ * Lui définir un constructeur ayant comme paramètre l'adresse, le code postal et la ville, et initialisant l'attribut estAVendre à faux.
+ * Créer des modificateurs ( des méthodes set* ) pour les champs n'étant pas initialisés dans le constructeur ( Comme par exemple setSurface )
+ * Pour l'ensemble des champs, créer des accesseurs ( des méthodes get* ) comme par exemple getCodePostal()
+ * Créer une méthode mettreEnVente permettant de passer l'attribut estAVendre à vrai
+ * Créer un attribut de classe ( static ) permettant de compter le nombre de maison créé ( Compteur à incrémenter dans le constructeur )
+ * Ecrire une méthode "informations" dans votre classe Maison permettant de retourner la phrase suivante :
+    "La maison de 70m2 située Rue des fleurs à Nantes n'est pas à vendre."
+ * Ecrire une méthode de classe ( static ) permettant d'afficher le nombre de maison créé que nous nommerons "compter" :
+    "Nous avons créé 1 maison"
+
+
+Votre classe est créée ! Maintenant, on va l'utiliser dans notre méthode main !
+
+Créer une première maison "Rue des fleurs" 44200 Nantes
+Utiliser les modificateurs ( les méthodes set* ) pour lui définir une surface de 70m2, 2 portes et 6 fenêtres.
+
+Appeler la méthode informations pour afficher la phrase suivante :
+
+"La maison de 70m2 située Rue des fleurs à Nantes n'est pas à vendre."
+
+Appeler la méthode compter pour afficher la phrase suivante :
+
+"Nous avons créé 1 maison"
+
+Ensuite, nous allons créer une deuxième maison : "Rue de la mer" 44230 Pornic 60m2 2 portes et 6 fenêtre.
+
+Une fois cette maison créée, utiliser les méthodes informations et compter pour afficher les phrases suivantes :
+
+"La maison de 60m2 située Rue de la mer à Pornic n'est pas à vendre."
+"Nous avons créé 2 maisons"
+
+Appeler la méthode mettreEnVente() sur la dernière maison créée puis rappeler la méthode informations()
+
+"La maison de 60m2 située Rue de la mer à Pornic est à vendre."
+
