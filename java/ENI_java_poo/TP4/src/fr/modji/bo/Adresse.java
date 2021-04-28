@@ -32,6 +32,6 @@ public class Adresse {
         if (this.mentionComplementaire != null ){
             System.out.printf( "%s %n" , getMentionComplementaire() );
         }
-        System.out.printf( "%d%s %s %n %d %s %n", getNumRue(), getComplementNum(), getRue(), getCodePostal(), getVille() );
+        System.out.printf( "%d%s %s %n%d %s %n", getNumRue(), getComplementNum(), getRue(), getCodePostal(), getVille() );
     }
 }

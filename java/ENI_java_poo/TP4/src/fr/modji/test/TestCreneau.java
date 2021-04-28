@@ -1,10 +1,10 @@
-package fr.eni.ecole.quelMedecin.test;
+package fr.modji.test;
 
 import java.time.LocalTime;
 
-import fr.eni.ecole.quelMedecin.bo.Adresse;
-import fr.eni.ecole.quelMedecin.bo.Creneau;
-import fr.eni.ecole.quelMedecin.bo.MedecinGeneraliste;
+import fr.modji.bo.Adresse;
+import fr.modji.bo.Creneau;
+import fr.modji.bo.MedecinGeneraliste;
 
 /**
  * @date 25 oct. 2018
@@ -12,7 +12,7 @@ import fr.eni.ecole.quelMedecin.bo.MedecinGeneraliste;
  * @author hboisgontier
  */
 public class TestCreneau {
-	public static void main(String[] args) {
+	public static void test() {
 		System.out.println("__________________________ Créneaux ______________________________");
 		Adresse sh = new Adresse("ZAC du Moulin Neuf", 2, "B", "rue Benjamin Franklin", 44800,
 				"Saint Herblain");

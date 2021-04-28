@@ -1,14 +1,14 @@
-package fr.eni.ecole.quelMedecin.test;
+package fr.modji.test;
 
 import java.time.LocalDate;
 
-import fr.eni.ecole.quelMedecin.bo.Adresse;
-import fr.eni.ecole.quelMedecin.bo.MedecinGeneraliste;
-import fr.eni.ecole.quelMedecin.bo.Patient;
+import fr.modji.bo.Adresse;
+import fr.modji.bo.MedecinGeneraliste;
+import fr.modji.bo.Patient;
 
 public class TestAssoAdresse {
 
-	public static void main(String[] args) {
+	public static void test() {
 		Adresse nio = new Adresse(19, null, "avenue Léo Lagrange", 79000, "Niort");
 		Adresse sh = new Adresse("ZAC du Moulin Neuf", 2, "B", "rue Benjamin Franklin", 44800, "Saint Herblain");
 		Adresse comp = new Adresse(4, null, "Rue des Glatiniers", 2100, "Saint-Quentin");

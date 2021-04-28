@@ -1,13 +1,13 @@
-package fr.eni.ecole.quelMedecin.test;
+package fr.modji.test;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-import fr.eni.ecole.quelMedecin.bo.Adresse;
-import fr.eni.ecole.quelMedecin.bo.Creneau;
-import fr.eni.ecole.quelMedecin.bo.MedecinGeneraliste;
-import fr.eni.ecole.quelMedecin.bo.Patient;
-import fr.eni.ecole.quelMedecin.bo.RendezVous;
+import fr.modji.bo.Adresse;
+import fr.modji.bo.Creneau;
+import fr.modji.bo.MedecinGeneraliste;
+import fr.modji.bo.Patient;
+import fr.modji.bo.RendezVous;
 
 /**
  * @date 25 oct. 2018
@@ -16,7 +16,7 @@ import fr.eni.ecole.quelMedecin.bo.RendezVous;
  */
 public class TestRDV {
 
-	public static void main(String[] args) {
+	public static void test() {
 		Adresse sh = new Adresse("ZAC du Moulin Neuf", 2, "B", "rue Benjamin Franklin", 44800, "Saint Herblain");
 		MedecinGeneraliste melanie = new MedecinGeneraliste("Malalaniche", "Mélanie", "02.28.03.17.28", sh);
 		new Creneau(LocalTime.of(9, 15), 15, melanie);
