@@ -1,5 +1,8 @@
 package fr.modji.calculatrice;
 
+/**
+ * User give 2 number and opérator and Calculatrice return answer if is possible
+ */
 public class Calculatrice {
     public static void main(String[] args) throws DepassementCapaciteException{
         char choice;
