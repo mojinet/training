@@ -1,6 +1,6 @@
 public enum Pion {
     LIBRE, BLANC, NOIR;
-    private int nombre;
+    private int nombre = 2;
 
     public int getNombre(){
         return this.nombre;

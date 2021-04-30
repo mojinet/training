@@ -17,9 +17,12 @@ public class PlateauDeReversi {
     }
 
     /**
-     * return a grafik state of game
+     * Display state of game
      */
     public void afficher(){
+        System.out.println(Pion.NOIR.getSymbol() + " : " + Pion.NOIR.getNombre() + " point");
+        System.out.println(Pion.BLANC.getSymbol() + " : " + Pion.BLANC.getNombre() + " point");
+
         System.out.println("  1 2 3 4 5 6 7 8");
         for (int i = 0; i < 8; i++) {
             System.out.print(i+1 + " ");
@@ -38,7 +41,48 @@ public class PlateauDeReversi {
      * @return
      */
     public int tester(Pion pion, int x, int y){
-        return 0;
+        int result;
+
+        if (plateau[x-1][y-1] == Pion.LIBRE){
+            result = 1;
+        }else{
+            result = 0;
+        }
+
+        return result;
+
+    }
+
+    /**
+     * return array of all position of adjacent adverse's pion
+     * @param pion
+     * @param x
+     * @param y
+     * @return
+     */
+    public int[][] whereIsOtherPion(Pion pion, int x, int y){
+        int[][] response = new int[8][];
+        int position = 0;
+
+        // set all values of array in -1
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 2; j++) {
+                response[i][j] = -1;
+            }
+        }
+
+        // get all position of adverse's adjacent pion
+        for (int i = -1; i <= 1; i++) {
+            for (int j = -1; j <= 1; j++) {
+                if (plateau[(x-1)+i][(y-1)+j] == pion.autrePion()){
+                    response[position][0] = x+i;
+                    response[position][1] = y+j;
+                    System.out.println(response[position][0] + " " + response[position][1]);
+                    position++;
+                }
+            }
+        }
+        return response;
     }
 
     /**
@@ -58,6 +102,7 @@ public class PlateauDeReversi {
      */
     public void poser(Pion pion, int x, int y){
         plateau[x-1][y-1] = pion;
+        pion.gagne(tester(pion,x,y));
         afficher();
     }
 }
