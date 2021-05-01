@@ -4,13 +4,15 @@ public class MainVolaille {
 
 	public static void main(String[] args) {
 
-		// Ajout de jeu de test manquant
+		// Ajout de jeu de test
 		Canard.changerPrix(15);
 		Canard.changerPoidsAbattage(0.260);
+		System.out.println(Canard.getPrixKg());
 		Poulet.changerPrix(20);
 		Poulet.changerPoidsAbattage(0);
+		System.out.println(Poulet.getPrixKg());
 
-
+		// Jeu de test fournis
 		Elevage laFerme = new Elevage();
 		//Ajout de 14 poulets de 250 grammes, identité allant de 150 à 164
 		for (int i = 0; i < 15; i++) {
@@ -50,9 +52,7 @@ public class MainVolaille {
 		Canard.changerPrix(24.5);
 		Poulet.changerPrix(11.2);
 		System.out.println("Volailles présentes dans la ferme après modification du prix du kilo de canard");
-		System.out.print(laFerme.toString());
-
-		System.out.println(Canard.prixKg + " " + Poulet.prixKg + " " + Volaille.prixKg);
+		System.out.print(laFerme);
 	}
 
 }
