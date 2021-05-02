@@ -1,9 +1,9 @@
+import java.util.ArrayList;
+
 public class PlateauDeReversi {
     Pion[][] plateau = new Pion[8][8];
 
-    /**
-     * initial position of game
-     */
+    // Initialise board
     public PlateauDeReversi(){
         for (int x = 0; x < 8; x++) {
             for (int y = 0; y < 8; y++) {
@@ -16,9 +16,7 @@ public class PlateauDeReversi {
         plateau[4][4] = Pion.BLANC;
     }
 
-    /**
-     * Display state of game
-     */
+    // Display grafical state of game
     public void afficher(){
         System.out.println(Pion.NOIR.getSymbol() + " : " + Pion.NOIR.getNombre() + " point");
         System.out.println(Pion.BLANC.getSymbol() + " : " + Pion.BLANC.getNombre() + " point");
@@ -33,76 +31,84 @@ public class PlateauDeReversi {
         }
     }
 
-    /**
-     * test how can capture adverse pion if play in x,y
-     * @param pion
-     * @param x
-     * @param y
-     * @return
-     */
-    public int tester(Pion pion, int x, int y){
-        int result;
+    // TODO
+    public boolean peutJouer(Pion pion){ return true; } // test si au moins une position ou il est possible de jouer
 
-        if (plateau[x-1][y-1] == Pion.LIBRE){
-            result = 1;
-        }else{
-            result = 0;
-        }
-
-        return result;
-
+    public void poser(Pion pion, int x, int y){ // le joueur pose le pion, retourne les pions adverse concerné
+        x = convertCoorToIndex(x);
+        y = convertCoorToIndex(y);
+        plateau[x][y] = pion;
+        // TODO retourne les pions adverse
     }
 
-    /**
-     * return array of all position of adjacent adverse's pion
-     * @param pion
-     * @param x
-     * @param y
-     * @return
-     */
-    public int[][] whereIsOtherPion(Pion pion, int x, int y){
-        int[][] response = new int[8][];
-        int position = 0;
+    public int tester(Pion pion, int x, int y){  // retourne le nombre de pion qui changerais de couleur si le joueur choisie cette position
+        x = convertCoorToIndex(x);
+        y = convertCoorToIndex(y);
+        ArrayList<int[]> adversePosition = ouSontLesAdversaire(pion,x,y);
+        int compteur = 0;
+        //test
 
-        // set all values of array in -1
-        for (int i = 0; i < 8; i++) {
-            for (int j = 0; j < 2; j++) {
-                response[i][j] = -1;
-            }
+        // boucle principal
+        for (int[] adverse: adversePosition) {
+            
+            // initialise les variable
+            int compteurDeTour = 1;
+            boolean check = true;
+            int[] direction = quelDirection(x,y,adverse[0],adverse[1]);
+            Pion pionAtPosition;
+
+            do {
+                // test qui est le prochain pion
+                pionAtPosition = quiEstLa(adverse[0]+direction[0], adverse[1]+direction[1]);
+
+                if ( pionAtPosition == pion.notrePion()){
+                    check = false;
+                }else if (pionAtPosition == pion.autrePion()){
+                    compteurDeTour++;
+                    direction[0] *= 2;
+                    direction[1] *= 2;
+                    //DEBUG MESSAGE
+                    System.out.println("Un pion adverse trouver en position : " + convertIndexToCoor(adverse[0] + direction[0]) + " " + convertIndexToCoor(adverse[1] + direction[1]));
+                }else{
+                    compteur = 0;
+                    check = false;
+                }
+            }while(check);
+
+            compteur += compteurDeTour;
         }
 
-        // get all position of adverse's adjacent pion
-        for (int i = -1; i <= 1; i++) {
-            for (int j = -1; j <= 1; j++) {
-                if (plateau[(x-1)+i][(y-1)+j] == pion.autrePion()){
-                    response[position][0] = x+i;
-                    response[position][1] = y+j;
-                    System.out.println(response[position][0] + " " + response[position][1]);
-                    position++;
+        return compteur;
+    }
+
+    // Mes methodes privées
+    private ArrayList<int[]> pionARetourner(Pion pion, int posOrigineX, int posOriginY, int[] direction){ return new ArrayList<>(); }
+
+    private ArrayList<int[]> ouSontLesAdversaire(Pion pion, int x, int y){
+        ArrayList<int[]> adversePosition = new ArrayList<>();
+
+        // retourne les position adverse adjacente
+        for (int i = -1; i < 2; i++) { // de -1 a 1
+            for (int j = -1; j < 2; j++) { // de -1 a 1
+                if (plateau[x+i][y+j] == pion.autrePion()){
+                    adversePosition.add(new int[]{x+i,y+j});
+                    // DEBUG INFO
+                    System.out.println("Pion adverse en position : " + convertIndexToCoor(x+i) + " " + convertIndexToCoor(y+j) );
                 }
             }
         }
-        return response;
+
+        return adversePosition;
     }
 
-    /**
-     * return boolean who represent if player can play
-     * @param pion
-     * @return
-     */
-    public boolean peutJouer(Pion pion){
-        return true;
+    private int[] quelDirection(int origineX,int origineY, int destinationX, int destinationY){
+        return new int[]{origineX-origineY,destinationX-destinationY};
     }
+    private Pion quiEstLa(int x, int y){ return plateau[x][y]; }
 
-    /**
-     * Player play at (x,y)
-     * @param pion
-     * @param x
-     * @param y
-     */
-    public void poser(Pion pion, int x, int y){
-        plateau[x-1][y-1] = pion;
-        pion.gagne(tester(pion,x,y));
-        afficher();
-    }
+    // Convert
+    public int convertIndexToCoor(int x){ return x+1; }
+    public int convertCoorToIndex(int x){ return x-1; }
+
+
 }

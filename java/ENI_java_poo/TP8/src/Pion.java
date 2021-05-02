@@ -33,6 +33,18 @@ public enum Pion {
     }
 
     /**
+     * @return a Pion who is the reverse of this
+     */
+    public Pion notrePion(){
+        Pion response;
+        switch (this.name()){
+            case "NOIR" -> response = Pion.NOIR;
+            case "BLANC" -> response = Pion.BLANC;
+            default -> response = Pion.LIBRE;
+        }
+        return response;
+    }
+    /**
      * @param nbPion
      */
     //TODO
