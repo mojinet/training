@@ -1,6 +1,6 @@
 package fr.modji.ElevageVolailles;
 
-public abstract class Volaille {
+public abstract class Volaille implements Specificites{
     // Atribute
     protected int identite;
     protected double poids;
@@ -17,10 +17,6 @@ public abstract class Volaille {
         String response = String.format("%s %d, poids : %.3fKg, prix : %.2f€", this.getName(), this.getIdentite(), this.getPoids(), this.prix());
         return response;
     }
-
-    // Abstract method
-    protected abstract double prix();
-    public abstract boolean assezGrosse();
 
     // Getter
     public double getPoids() {
