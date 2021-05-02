@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 /**
@@ -13,7 +14,7 @@ public class Game {
         Game game = new Game();
         System.out.println("Welcome to reversy, game for 2 player");
 
-        // Game loop
+        // Game loop TODO une fin
         do{
             game.playerPlay(Pion.NOIR);
             game.playerPlay(Pion.BLANC);
@@ -24,26 +25,30 @@ public class Game {
     public void playerPlay(Pion pion){
         boolean aJouer = false;
 
-        // Si il existe au moin une position jouable
+        // Si le joueur à au moins une position jouable
         if (board.peutJouer(pion)){
-            // Tant que le joueur n'a pas jouer une position
             System.out.println("******************");
             System.out.println("turn of  " + pion.getSymbol());
             board.afficher();
+
+            // L'utilisateur saisie la ligne/colonne qu'il veut jouer
             do{
-                System.out.print("ligne : ");
-                x = scan.nextInt();
-                scan.nextLine();
-                System.out.print("colonne : ");
-                y = scan.nextInt();
-                scan.nextLine();
+                try{
+                    System.out.print("ligne : ");
+                    x = scan.nextInt();
+                    scan.nextLine();
+                    System.out.print("colonne : ");
+                    y = scan.nextInt();
+                    scan.nextLine();
+                }catch (InputMismatchException e){
+                    System.out.println("/!\\  incorect ! retry ! /!\\ ");
+                    scan.nextLine();
+                }
+
+                // On test la position que l'utilisateur veut jouer
                 if (board.tester(pion,x,y) >= 1){
-                    try{
-                        board.poser(pion,x,y);
-                        aJouer = true;
-                    }catch (Exception e){
-                        System.out.println("/!\\  incorect ! retry ! /!\\ ");
-                    }
+                    board.poser(pion,x,y);
+                    aJouer = true;
                 }else{
                     System.out.println("/!\\ You can't play here ! retry /!\\");
                 }
