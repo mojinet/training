@@ -7,7 +7,7 @@ public enum Pion {
     }
 
     /**
-     * @return a char who represent the symbol of pion
+     * retourne le symbole du pion : ● o ·
      */
     public char getSymbol(){
         char response;
@@ -20,7 +20,7 @@ public enum Pion {
     }
 
     /**
-     * @return a Pion who is the reverse of this
+     * Retourne l'autre pion
      */
     public Pion autrePion(){
         Pion response;
@@ -33,7 +33,7 @@ public enum Pion {
     }
 
     /**
-     * @return a Pion who is the reverse of this
+     * Retourne notre pion
      */
     public Pion notrePion(){
         Pion response;
@@ -45,10 +45,9 @@ public enum Pion {
         return response;
     }
     /**
-     * @param nbPion
+     * Ajoute le nombre de pion total
      */
-    //TODO
     public void gagne(int nbPion){
-        this.nombre += nbPion;
+        this.nombre = nbPion;
     }
 }
