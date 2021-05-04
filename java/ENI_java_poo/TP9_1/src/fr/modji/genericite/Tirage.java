@@ -4,9 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Tirage {
-    private String mot;
-    private ArrayList<Character> motSelectionner;
-    private ArrayList<Character> motMelanger;
+    private ArrayList<Character> motSelectionner = new ArrayList<>();
+    private ArrayList<Character> motMelanger = new ArrayList<>();
     private Dictionnaire dico;
 
     public Tirage(Dictionnaire dico){
@@ -18,17 +17,15 @@ public class Tirage {
      * Selectionne un mot au hasard dans le dictionnaire
      */
     private void newTirage() {
-        ArrayList<Character> motSelectionner = new ArrayList<>();
-        ArrayList<Character> motMelanger = new ArrayList<>();
-
         int random = (int)(Math.random() * this.dico.getSize()) + 1;
-        this.mot = this.dico.getMot(random);
+        String mot = this.dico.getMot(random);
 
         // On ajoute un à un les Charactere dans notre collection
         for ( Character c : mot.toCharArray() ) {
-            motSelectionner.add(c);
-            motMelanger.add(c);
+            this.motSelectionner.add(c);
+            this.motMelanger.add(c);
         }
+
         // on melange les lettres
         Collections.shuffle(motMelanger);
     }
@@ -36,18 +33,24 @@ public class Tirage {
     /**
      * Retourne le mot mélanger sous forme de String
      */
-    public void getMotMelanger(){
+    public String getMot(boolean original){
+        ArrayList<Character> mot = original ? this.motSelectionner : this.motMelanger;
         StringBuilder str = new StringBuilder();
-        for (Character c : this.motMelanger) {
-            System.out.print(c);
+
+        for (Character c : mot) {
+            str.append(c);
         }
+        return str.toString().toUpperCase();
+    }
+    public String getMot(){
+        return this.getMot(false);
     }
 
     /**
      * Compare la réponse de l'utilisateur avec le dictionnaire
      */
     public boolean compare(String response){
-        return true;
+        return response.equals(getMot(true));
     }
 
 }
