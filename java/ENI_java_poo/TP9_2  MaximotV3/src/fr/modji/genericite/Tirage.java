@@ -18,21 +18,15 @@ public class Tirage {
         setListeDeMot();
     }
 
-    ArrayList<String> c1 = new ArrayList<>();
-    ArrayList<String> c2 = new ArrayList<>();
-    ArrayList<String> c3 = new ArrayList<>();
-    ArrayList<String> c4 = new ArrayList<>();
-    ArrayList<String> c5 = new ArrayList<>();
-    ArrayList<String> c6 = new ArrayList<>();
-    ArrayList<String> c7 = new ArrayList<>();
-    ArrayList<String> c8 = new ArrayList<>();
-    ArrayList<String> c9 = new ArrayList<>();
-    ArrayList<String> c10 = new ArrayList<>();
-
     /**
      * Remplis la table de hashage avec les combinaison possible de mot
      */
     private void setListeDeMot() {
+
+        // On créer autant de tableau qu'il y as de caractere dans le mot
+        for (int i = 0; i < getMot().length(); i++) {
+            listeDeMot.put(i, new ArrayList<String>());
+        }
 
         // Pour chaque mot dans le dico
         for (int i = 1; i <= dico.getSize()-1; i++) {
@@ -48,17 +42,12 @@ public class Tirage {
                     // pour chaque lettre du mot
                     for (int k = 0; k < mot.length; k++) {
                         // si une des lettre du mot a tester est dans le mot
-                        if (motTester[j] == mot[k]){
+                        if (motTester[j] == mot[k] && motTester[j] != ' ' && mot[k] != ' '){
                             // on retire la lettre du mot
                             motTester[j] = ' ';
+                            mot[k] = ' ';
                             // on incrémente le compteur des qu'ont matche
                             count++;
-                            if (count == motTester.length){
-                                j = motTester.length;
-                                k = mot.length;
-                            }
-                        }else if ((motTester[j] != mot[k]) && (j == motTester.length -1)){
-                            count = 0;
                         }
                     }
                 }
@@ -74,49 +63,11 @@ public class Tirage {
                     for (char c: motTester) { strMotTester.append(c); }
                     for (char c: mot) { strMot.append(c); }
 
-                    switch (count) {
-                        case 1 -> {
-                            c1.add(dico.getMot(i).toUpperCase());
-                            listeDeMot.put(count, c1);
-                        }
-                        case 2 -> {
-                            c2.add(dico.getMot(i).toUpperCase());
-                            listeDeMot.put(count, c2);
-                        }
-                        case 3 -> {
-                            c3.add(dico.getMot(i).toUpperCase());
-                            listeDeMot.put(count, c3);
-                        }
-                        case 4 -> {
-                            c4.add(dico.getMot(i).toUpperCase());
-                            listeDeMot.put(count, c4);
-                        }
-                        case 5 -> {
-                            c5.add(dico.getMot(i).toUpperCase());
-                            listeDeMot.put(count, c5);
-                        }
-                        case 6 -> {
-                            c6.add(dico.getMot(i).toUpperCase());
-                            listeDeMot.put(count, c6);
-                        }
-                        case 7 -> {
-                            c7.add(dico.getMot(i).toUpperCase());
-                            listeDeMot.put(count, c7);
-                        }
-                        case 8 -> {
-                            c8.add(dico.getMot(i).toUpperCase());
-                            listeDeMot.put(count, c8);
-                        }
-                        case 9 -> {
-                            c9.add(dico.getMot(i).toUpperCase());
-                            listeDeMot.put(count, c9);
-                        }
-                        case 10 -> {
-                            c10.add(dico.getMot(i).toUpperCase());
-                            listeDeMot.put(count, c10);
-                        }
+                    // On ajoute le mot dans le tableau de la liste des mots qui donne des points
+                    ArrayList<String> tab = listeDeMot.get(motTester.length);
+                    if (tab != null){
+                        tab.add(strMotTester.toString());
                     }
-
                 }
             }
         }
@@ -158,15 +109,23 @@ public class Tirage {
     /**
      * Compare la réponse de l'utilisateur avec le dictionnaire
      */
-    public boolean compare(String response){
+    public int compare(String response){
+        int score = 0;
 
-        listeDeMot.forEach(
-            (k,v) -> {
-                System.out.println("Mot de " + k + " lettres : " + v);
+        for (int i = 0; i < motSelectionner.size(); i++) {
+            ArrayList<String> aL = listeDeMot.get(i);
+            for (String motCompare: aL ) {
+                if (response.equals(motCompare)){
+                    score = i;
+                }
             }
-        );
+        }
 
-        return response.equals(getMot(true));
+        return score;
     }
 
+    public void DisplayListeReponse() {
+        listeDeMot.forEach(
+                (k, v) -> System.out.println("Mot avec " + k + "lettres : " + v));
+    }
 }

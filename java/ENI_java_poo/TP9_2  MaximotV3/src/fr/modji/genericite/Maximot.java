@@ -20,10 +20,12 @@ public class Maximot {
         System.out.println("Voici votre tirage : " + tirage.getMot());
         System.out.print("Votre proposition s'il vous plais : ");
         response = scan.nextLine();
-        if( tirage.compare(response.toUpperCase()) && dico.estDansLeDico(response) ){
-            System.out.print("Bonne réponse !");
+        if( tirage.compare(response.toUpperCase()) > 0 ){
+            System.out.println("Bonne réponse !");
+            System.out.println("Score : " + tirage.compare(response.toUpperCase()) + " Points sur " + tirage.getMot().length());
         }else{
             System.out.print("Vous avez perdu !");
         }
+        tirage.DisplayListeReponse();
     }
 }
