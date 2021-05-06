@@ -16,7 +16,7 @@ public class Plateau<T> implements Affichable {
         this.longeur = longeur;
         for (int x = 0; x < 8; x++) {
             for (int y = 0; y < 8; y++) {
-                this.plateau[x][y] = Pion.LIBRE;
+                this.plateau[x][y] = type;
             }
         }
     }
@@ -34,7 +34,7 @@ public class Plateau<T> implements Affichable {
         for (int i = 0; i < longeur; i++) {
             str.append(i + "  ");
             for (int j = 0; j < largeur; j++) {
-                str.append(liste.get(j).get)
+                str.append(liste.get(j).get);
             }
         }
     }
