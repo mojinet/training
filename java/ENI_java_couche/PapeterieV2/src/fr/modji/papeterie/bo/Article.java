@@ -7,6 +7,7 @@ public abstract class Article {
     protected String designation;
     protected float prixUnitaire;
     protected int qteStock;
+    private static int id = 1;
 
     public Article (int idArticle, String marque, String ref, String designation, float pu, int qte){
         this.idArticle = idArticle;
@@ -23,6 +24,8 @@ public abstract class Article {
         this.designation = designation;
         this.prixUnitaire = pu;
         this.qteStock = qte;
+        this.idArticle = Article.id;
+        Article.id++;
     }
 
     @Override

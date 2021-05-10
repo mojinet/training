@@ -2,6 +2,7 @@ package fr.modji.papeterie.bo;
 
 public class Ramette extends Article{
     private int grammage;
+    public static String TYPE = "Stylo";
 
     public Ramette(int idArticle, String marque, String ref, String designation, float pu, int qte, int grammage) {
         super(idArticle, marque, ref, designation, pu, qte);

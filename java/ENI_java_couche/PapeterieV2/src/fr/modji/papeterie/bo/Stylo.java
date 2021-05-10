@@ -2,6 +2,7 @@ package fr.modji.papeterie.bo;
 
 public class Stylo extends Article {
     private String couleur;
+    public static String TYPE = "Stylo";
 
     public Stylo(int idArticle, String marque, String ref, String designation, float pu, int qte, String couleur) {
         super(idArticle, marque, ref, designation, pu, qte);
