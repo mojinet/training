@@ -4,7 +4,6 @@ import fr.modji.papeterie.bo.Article;
 import fr.modji.papeterie.bo.Ramette;
 import fr.modji.papeterie.bo.Stylo;
 import fr.modji.papeterie.dal.ArticleDAO;
-import fr.modji.papeterie.dal.Settings;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,11 +11,12 @@ import java.util.List;
 
 public class ArticleDAOJdbcImpl implements ArticleDAO {
     // TODO implémenter la connection de JdbcTools
-    private Connection connection = new JdbcTools();
+    private Connection connection;
 
     public ArticleDAOJdbcImpl(){
-
-
+        JdbcTools jdbc = new JdbcTools();
+        connection = jdbc.getConnection();
+    }
 
     /**
      * Retourne l'article selectionner
