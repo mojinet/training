@@ -3,35 +3,20 @@ package fr.modji.papeterie.dal.jdbc;
 import fr.modji.papeterie.bo.Article;
 import fr.modji.papeterie.bo.Ramette;
 import fr.modji.papeterie.bo.Stylo;
+import fr.modji.papeterie.dal.ArticleDAO;
+import fr.modji.papeterie.dal.Settings;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArticleDAOJdbcImpl {
-    private final String PARAM_PILOTE_JDBC = "com.mysql.jdbc.Driver";
-    private final String PARAM_URL = "jdbc:mysql://localhost/papeterie?";
-    private final String PARAM_LOGIN = "root";
-    private final String PARAM_PASSWORD = "";
-
-    private Connection connection;
+public class ArticleDAOJdbcImpl implements ArticleDAO {
+    // TODO implémenter la connection de JdbcTools
+    private Connection connection = new JdbcTools();
 
     public ArticleDAOJdbcImpl(){
 
-        // Chargement du driver
-        try {
-            Class.forName(PARAM_PILOTE_JDBC);
-        }catch (ClassNotFoundException e){
-            System.err.println(e.getMessage());
-        }
 
-        // Connection à la base de données
-        try {
-            this.connection = DriverManager.getConnection(PARAM_URL,PARAM_LOGIN,PARAM_PASSWORD);
-        }catch (SQLException e){
-            System.err.println(e.getMessage());
-        }
-    }
 
     /**
      * Retourne l'article selectionner
