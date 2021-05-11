@@ -18,6 +18,6 @@ public class Etudiant extends Enseignant{
         }else{
             salaire = heure * Etudiant.HEURE;;
         }
-        return salaire;
+        return salaire * Enseignant.TAUX_CHARGE;
     }
 }

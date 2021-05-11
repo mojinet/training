@@ -18,7 +18,7 @@ public class EnseignantChercheur extends Enseignant{
         }else{
             salaire = EnseignantChercheur.SALAIRE_FIXE;
         }
-        return salaire;
+        return salaire * Enseignant.TAUX_CHARGE;
     }
 
 }

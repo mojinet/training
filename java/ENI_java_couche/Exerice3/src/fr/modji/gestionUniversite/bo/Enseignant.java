@@ -34,7 +34,7 @@ public abstract class Enseignant {
     }
 
     protected int nbHeure;
-    private static final int TAUX_CHARGE = 1;
+    protected static final int TAUX_CHARGE = 2;
 
     public abstract double getCout();
 }

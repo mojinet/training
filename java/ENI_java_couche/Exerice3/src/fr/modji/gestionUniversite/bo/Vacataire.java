@@ -14,6 +14,6 @@ public class Vacataire extends Enseignant{
 
         salaire = heure * Vacataire.HEURE;
 
-        return salaire;
+        return salaire * Enseignant.TAUX_CHARGE;
     }
 }
