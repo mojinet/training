@@ -18,10 +18,10 @@ public class MainIHM extends JFrame {
     public MainIHM(){
         this.setTitle("Gestion de catalogue");
         this.setSize(new Dimension(500,500));
-        this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         initIHM();
+        this.setVisible(true);
     }
 
     private void initIHM(){
@@ -76,9 +76,9 @@ public class MainIHM extends JFrame {
         // grammage
         gbc.gridy = 6;
         gbc.gridx = 0;
-        panel.add(getLblCouleur(),gbc);
+        panel.add(getLblGrammage(),gbc);
         gbc.gridx = 1;
-        panel.add(getCbbCouleur(),gbc);
+        panel.add(getCkbGrammage(),gbc);
 
         // couleur
         gbc.gridy = 7;
@@ -88,11 +88,11 @@ public class MainIHM extends JFrame {
         panel.add(getCbbCouleur(),gbc);
 
         // section btn todo n'affiche plus rien
-        /*
+
         gbc.gridy = 8;
         gbc.gridx = 0;
         panel.add(getPanBouton(),gbc);
-        */
+
 
         this.setContentPane(panel);
     }
@@ -142,7 +142,7 @@ public class MainIHM extends JFrame {
 
     public JLabel getLblGrammage() {
         if (lblGrammage == null){
-            lblGrammage = new JLabel("Reference");
+            lblGrammage = new JLabel("Grammage");
         }
         return lblGrammage;
     }
@@ -247,12 +247,24 @@ public class MainIHM extends JFrame {
 
     public JPanel getPanBouton() {
         if (panBouton == null){
+            // init JPanel
             panBouton = new JPanel();
-            panBouton.add(btnPrec);
-            panBouton.add(btnNew);
-            panBouton.add(btnSave);
-            panBouton.add(btnSupr);
-            panBouton.add(btnSuiv);
+            panBouton.setLayout(new GridBagLayout());
+            GridBagConstraints gbc = new GridBagConstraints();
+            // positionnement
+            gbc.gridx = 0;
+            gbc.gridy = 0;
+            panBouton.add(getBtnPrec(),gbc);
+            gbc.gridx = 1;
+            panBouton.add(getBtnNew(),gbc);
+            gbc.gridx = 2;
+            panBouton.add(getBtnSave(),gbc);
+            gbc.gridx = 3;
+            panBouton.add(getBtnSupr(),gbc);
+            gbc.gridx = 4;
+            panBouton.add(getBtnSuiv(),gbc);
+
+            this.setContentPane(panBouton);
         }
         return panBouton;
     }
