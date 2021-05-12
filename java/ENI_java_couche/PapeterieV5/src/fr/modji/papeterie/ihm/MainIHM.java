@@ -13,7 +13,7 @@ public class MainIHM extends JFrame {
     private JButton btnPrec, btnNew, btnSave, btnSupr, btnSuiv;
     private JPanel panBouton;
 
-    private final int sizeTxt = 50;
+    private final int sizeTxt = 10;
 
     public MainIHM(){
         this.setTitle("Gestion de catalogue");
@@ -31,6 +31,70 @@ public class MainIHM extends JFrame {
         GridBagConstraints gbc = new GridBagConstraints();
 
         //Positionnement de nos elements
+        // Reference
+        gbc.gridy = 0;
+        gbc.gridx = 0;
+        panel.add(getLblReference(),gbc);
+        gbc.gridx = 1;
+        panel.add(getTxtReference(),gbc);
+
+        // designation
+        gbc.gridy = 1;
+        gbc.gridx = 0;
+        panel.add(getLblDesignation(),gbc);
+        gbc.gridx = 1;
+        panel.add(getTxtDesignation(),gbc);
+
+        // marque
+        gbc.gridy = 2;
+        gbc.gridx = 0;
+        panel.add(getLblMarque(),gbc);
+        gbc.gridx = 1;
+        panel.add(getTxtMarque(),gbc);
+
+        // stock
+        gbc.gridy = 3;
+        gbc.gridx = 0;
+        panel.add(getLblStock(),gbc);
+        gbc.gridx = 1;
+        panel.add(getTxtStock(),gbc);
+
+        // prix
+        gbc.gridy = 4;
+        gbc.gridx = 0;
+        panel.add(getLblPrix(),gbc);
+        gbc.gridx = 1;
+        panel.add(getTxtPrix(),gbc);
+
+        // type
+        gbc.gridy = 5;
+        gbc.gridx = 0;
+        panel.add(getLblType(),gbc);
+        gbc.gridx = 1;
+        panel.add(getRadType(),gbc);
+
+        // grammage
+        gbc.gridy = 6;
+        gbc.gridx = 0;
+        panel.add(getLblCouleur(),gbc);
+        gbc.gridx = 1;
+        panel.add(getCbbCouleur(),gbc);
+
+        // couleur
+        gbc.gridy = 7;
+        gbc.gridx = 0;
+        panel.add(getLblCouleur(),gbc);
+        gbc.gridx = 1;
+        panel.add(getCbbCouleur(),gbc);
+
+        // section btn todo n'affiche plus rien
+        /*
+        gbc.gridy = 8;
+        gbc.gridx = 0;
+        panel.add(getPanBouton(),gbc);
+        */
+
+        this.setContentPane(panel);
     }
 
     // Singleton sur tout les composants
