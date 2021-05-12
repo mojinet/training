@@ -6,12 +6,14 @@ import java.awt.*;
 public class MainIHM extends JFrame {
 
     private JLabel lblReference, lblDesignation, lblMarque, lblStock, lblPrix, lblType, lblGrammage, lblCouleur;
-    private JTextField txtReference, txtDesignation, txtMarque, txtStaock, txtPrix;
+    private JTextField txtReference, txtDesignation, txtMarque, txtStock, txtPrix;
     private JRadioButton radType;
     private JCheckBox ckbGrammage;
     private JComboBox cbbCouleur;
     private JButton btnPrec, btnNew, btnSave, btnSupr, btnSuiv;
     private JPanel panBouton;
+
+    private final int sizeTxt = 50;
 
     public MainIHM(){
         this.setTitle("Gestion de catalogue");
@@ -89,58 +91,105 @@ public class MainIHM extends JFrame {
     }
 
     public JTextField getTxtReference() {
+        if (txtReference == null){
+            txtReference = new JTextField(sizeTxt);
+        }
         return txtReference;
     }
 
     public JTextField getTxtDesignation() {
+        if (txtDesignation == null){
+            txtDesignation = new JTextField(sizeTxt);
+        }
         return txtDesignation;
     }
 
     public JTextField getTxtMarque() {
+        if (txtMarque == null){
+            txtMarque = new JTextField(sizeTxt);
+        }
         return txtMarque;
     }
 
-    public JTextField getTxtStaock() {
-        return txtStaock;
+    public JTextField getTxtStock() {
+        if (txtStock == null){
+            txtStock = new JTextField(sizeTxt);
+        }
+        return txtStock;
     }
 
     public JTextField getTxtPrix() {
+        if (txtPrix == null){
+            txtPrix = new JTextField(sizeTxt);
+        }
         return txtPrix;
     }
-
+    // todo radio component
     public JRadioButton getRadType() {
+        if (radType == null){
+            radType = new JRadioButton();
+        }
         return radType;
     }
-
+    // todo checkbox component
     public JCheckBox getCkbGrammage() {
+        if (ckbGrammage == null){
+            ckbGrammage = new JCheckBox();
+        }
         return ckbGrammage;
     }
-
+    // todo checkbox component
     public JComboBox getCbbCouleur() {
+        if (cbbCouleur == null){
+            cbbCouleur = new JComboBox();
+        }
         return cbbCouleur;
     }
-
+    // todo listener & image
     public JButton getBtnPrec() {
+        if (btnPrec == null){
+            btnPrec = new JButton("precedent");
+        }
         return btnPrec;
     }
 
     public JButton getBtnNew() {
+        if (btnNew == null){
+            btnNew = new JButton("nouveau");
+        }
         return btnNew;
     }
 
     public JButton getBtnSave() {
+        if (btnSave == null){
+            btnSave = new JButton("Sauvegarde");
+        }
         return btnSave;
     }
 
     public JButton getBtnSupr() {
+        if (btnSupr == null){
+            btnSupr = new JButton("Suprimmer");
+        }
         return btnSupr;
     }
 
     public JButton getBtnSuiv() {
+        if (btnSuiv == null){
+            btnSuiv = new JButton("Suivant");
+        }
         return btnSuiv;
     }
 
     public JPanel getPanBouton() {
+        if (panBouton == null){
+            panBouton = new JPanel();
+            panBouton.add(btnPrec);
+            panBouton.add(btnNew);
+            panBouton.add(btnSave);
+            panBouton.add(btnSupr);
+            panBouton.add(btnSuiv);
+        }
         return panBouton;
     }
 }
