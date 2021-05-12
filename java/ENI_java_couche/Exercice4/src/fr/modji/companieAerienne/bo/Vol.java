@@ -11,8 +11,8 @@ public class Vol {
     private Date dateArrive;
     private List<Escale> listEscal;
 
-    public Vol(boolean reservationOuverte, Aeroport aeroDepart, Aeroport aeroArrive, Date dateDepart, Date dateArrive) {
-        this.reservationOuverte = reservationOuverte;
+    public Vol(Aeroport aeroDepart, Aeroport aeroArrive, Date dateDepart, Date dateArrive) {
+        this.reservationOuverte = true;
         this.aeroDepart = aeroDepart;
         this.aeroArrive = aeroArrive;
         this.dateDepart = dateDepart;

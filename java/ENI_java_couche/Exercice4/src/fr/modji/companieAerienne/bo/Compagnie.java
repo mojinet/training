@@ -38,6 +38,18 @@ public class Compagnie {
         return aeroList.get(index);
     }
 
+    public Vol getVol(int index){
+        return listeVol.get(index);
+    }
+
+    public void stopReservation(Vol vol){
+        for (Vol v: listeVol) {
+            if (v.equals(vol)){
+                vol.setReservationOuverte(false);
+            }
+        }
+    }
+
     @Override
     public String toString() {
         return "Compagnie{" +

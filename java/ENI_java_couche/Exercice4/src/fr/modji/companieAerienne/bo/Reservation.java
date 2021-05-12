@@ -1,16 +1,20 @@
 package fr.modji.companieAerienne.bo;
 
 public class Reservation {
+    private String nomClientReserve;
+    private String prenomClientReserve;
     private String nomClient;
     private String prenomClient;
     private Vol vol;
     private boolean confirmation;
 
-    public Reservation(String nomClient, String prenomClient, Vol vol, boolean confirmation) {
-        this.nomClient = nomClient;
-        this.prenomClient = prenomClient;
+    public Reservation(Client clientReserve, Client client, Vol vol) {
+        this.nomClientReserve = client.getNom();
+        this.prenomClientReserve = client.getPrenom();
+        this.nomClient = client.getNom();
+        this.prenomClient = client.getPrenom();
         this.vol = vol;
-        this.confirmation = confirmation;
+        this.confirmation = true;
     }
 
     public String getNomClient() {
@@ -44,7 +48,21 @@ public class Reservation {
     public void setConfirmation(boolean confirmation) {
         this.confirmation = confirmation;
     }
+    public String getNomClientReserve() {
+        return nomClientReserve;
+    }
 
+    public void setNomClientReserve(String nomClientReserve) {
+        this.nomClientReserve = nomClientReserve;
+    }
+
+    public String getPrenomClientReserve() {
+        return prenomClientReserve;
+    }
+
+    public void setPrenomClientReserve(String prenomClientReserve) {
+        this.prenomClientReserve = prenomClientReserve;
+    }
     @Override
     public String toString() {
         return "Reservation{" +
