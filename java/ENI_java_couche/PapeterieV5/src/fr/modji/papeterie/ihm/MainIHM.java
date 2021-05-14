@@ -13,21 +13,23 @@ public class MainIHM extends JFrame {
     private JButton btnPrec, btnNew, btnSave, btnSupr, btnSuiv;
     private JPanel panBouton;
 
-    private final int sizeTxt = 10;
+    private final int sizeTxt = 15;
 
     public MainIHM(){
         this.setTitle("Gestion de catalogue");
-        this.setSize(new Dimension(500,500));
+        this.setSize(new Dimension(400,400));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         initIHM();
         this.setVisible(true);
+        this.setResizable(false);
     }
 
     private void initIHM(){
         // constuction du JPanel
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridBagLayout());
+        JPanel panel = (JPanel) this.getContentPane();
+        var gbl = new GridBagLayout();
+        panel.setLayout(gbl);
         GridBagConstraints gbc = new GridBagConstraints();
 
         //Positionnement de nos elements
@@ -35,6 +37,7 @@ public class MainIHM extends JFrame {
         gbc.gridy = 0;
         gbc.gridx = 0;
         panel.add(getLblReference(),gbc);
+        gbc.weightx = 0.1;
         gbc.gridx = 1;
         panel.add(getTxtReference(),gbc);
 
@@ -88,8 +91,8 @@ public class MainIHM extends JFrame {
         panel.add(getCbbCouleur(),gbc);
 
         // section btn todo n'affiche plus rien
-
         gbc.gridy = 8;
+        gbc.gridwidth = 10;
         gbc.gridx = 0;
         panel.add(getPanBouton(),gbc);
 
@@ -212,35 +215,40 @@ public class MainIHM extends JFrame {
     // todo listener & image
     public JButton getBtnPrec() {
         if (btnPrec == null){
-            btnPrec = new JButton("precedent");
+            ImageIcon icon = new ImageIcon(this.getClass().getResource("/img/back24.gif"));
+            btnPrec = new JButton(icon);
         }
         return btnPrec;
     }
 
     public JButton getBtnNew() {
         if (btnNew == null){
-            btnNew = new JButton("nouveau");
+            ImageIcon icon = new ImageIcon(this.getClass().getResource("/img/new24.gif"));
+            btnNew = new JButton(icon);
         }
         return btnNew;
     }
 
     public JButton getBtnSave() {
         if (btnSave == null){
-            btnSave = new JButton("Sauvegarde");
+            ImageIcon icon = new ImageIcon(this.getClass().getResource("/img/save24.gif"));
+            btnSave = new JButton(icon);
         }
         return btnSave;
     }
 
     public JButton getBtnSupr() {
         if (btnSupr == null){
-            btnSupr = new JButton("Suprimmer");
+            ImageIcon icon = new ImageIcon(this.getClass().getResource("/img/delete24.gif"));
+            btnSupr = new JButton(icon);
         }
         return btnSupr;
     }
 
     public JButton getBtnSuiv() {
         if (btnSuiv == null){
-            btnSuiv = new JButton("Suivant");
+            ImageIcon icon = new ImageIcon(this.getClass().getResource("/img/Forward24.gif"));
+            btnSuiv = new JButton(icon);
         }
         return btnSuiv;
     }
