@@ -74,24 +74,26 @@ public class MainIHM extends JFrame {
         gbc.gridx = 0;
         panel.add(getLblType(),gbc);
         gbc.gridx = 1;
-        panel.add(getRadType(),gbc);
+        panel.add(getRadType1(),gbc);
+        gbc.gridy = 6;
+        panel.add(getRadType2(),gbc);
 
         // grammage
-        gbc.gridy = 6;
+        gbc.gridy = 7;
         gbc.gridx = 0;
         panel.add(getLblGrammage(),gbc);
         gbc.gridx = 1;
         panel.add(getCkbGrammage(),gbc);
 
         // couleur
-        gbc.gridy = 7;
+        gbc.gridy = 8;
         gbc.gridx = 0;
         panel.add(getLblCouleur(),gbc);
         gbc.gridx = 1;
         panel.add(getCbbCouleur(),gbc);
 
         // section btn todo n'affiche plus rien
-        gbc.gridy = 8;
+        gbc.gridy = 9;
         gbc.gridwidth = 10;
         gbc.gridx = 0;
         panel.add(getPanBouton(),gbc);
@@ -192,9 +194,15 @@ public class MainIHM extends JFrame {
         return txtPrix;
     }
     // todo radio component
-    public JRadioButton getRadType() {
+    public JRadioButton getRadType1() {
         if (radType == null){
-            radType = new JRadioButton();
+            radType = new JRadioButton("Ramette");
+        }
+        return radType;
+    }
+    public JRadioButton getRadType2() {
+        if (radType == null){
+            radType = new JRadioButton("Stylo");
         }
         return radType;
     }
