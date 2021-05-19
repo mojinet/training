@@ -1,0 +1,20 @@
+ul{
+
+}
+
+li{
+    list-style: none;
+    display: inline-block;
+}
+
+.container_app{
+    display: flex;
+}
+
+.container_items{
+    width: 100px;
+    height: 50px;
+    background-color: bisque;
+    border: 1px black solid;
+    margin : 50px;
+}
