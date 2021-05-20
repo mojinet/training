@@ -9,6 +9,18 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+
+  <!-- On déclare un nom de servlet et son chemin-->
+  <servlet>
+    <servlet-name>PremiereServletConfigurationWebXML</servlet-name>
+    <servlet-class>fr.eni.javaee.module2.PremiereServletConfigurationWebXML</servlet-class>
+  </servlet>
+  <!-- On informe du nom de la servlet et de l'url qu'ont veut lui donnée-->
+  <servlet-mapping>
+    <servlet-name>PremiereServletConfigurationWebXML</servlet-name>
+    <url-pattern>/modules/module2/PremiereServletConfigurationWebXML</url-pattern>
+  </servlet-mapping>
+
 </web-app>
 
 
