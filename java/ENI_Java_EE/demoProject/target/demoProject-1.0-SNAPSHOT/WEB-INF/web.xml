@@ -21,6 +21,15 @@
     <url-pattern>/modules/module2/PremiereServletConfigurationWebXML</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>premiereJSPDansWEB-INF</servlet-name>
+    <jsp-file>/WEB-INF/modules/module3/demonstration/premiereJSPDansWEB-INF.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>premiereJSPDansWEB-INF</servlet-name>
+    <url-pattern>/modules/module3/demonstration/premiereJSPDansWEB-INF</url-pattern>
+  </servlet-mapping>
+
 </web-app>
 
 
