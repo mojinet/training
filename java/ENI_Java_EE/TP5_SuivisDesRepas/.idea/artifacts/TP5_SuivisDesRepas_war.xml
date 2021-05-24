@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="TP5_SuivisDesRepas:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>TP5_SuivisDesRepas</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="TP5_SuivisDesRepas-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="TP5_SuivisDesRepas:war exploded" />
+    </root>
+  </artifact>
+</component>

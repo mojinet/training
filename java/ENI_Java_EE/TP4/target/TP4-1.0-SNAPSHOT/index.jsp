@@ -9,6 +9,5 @@
     <p>Par contre il n'y as qu'un seul jeu...</p>
     <a href="ServletTentative">Jouer au CHI-FOU-MI</a>
 <br/>
-<a href="hello-servlet">Hello Servlet</a>
 </body>
 </html>

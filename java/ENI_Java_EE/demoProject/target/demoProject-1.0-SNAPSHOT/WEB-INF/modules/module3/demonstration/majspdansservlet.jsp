@@ -7,21 +7,19 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<!-- Declaration -->
 <%!
-    //Declaration
     private int nombre;
-
     private int getNombre(){return this.nombre;}
     private void setNombre(int nb){this.nombre = nb;}
 %>
-
 <html>
 <head>
     <title>Title</title>
 </head>
 <body>
 
-<!-- instruction java -->
+<!-- Instruction java -->
 <% this.setNombre(50);%>
 <!-- Affichage d'une variable -->
 <span>Le nombre est : <%= getNombre() %></span>
