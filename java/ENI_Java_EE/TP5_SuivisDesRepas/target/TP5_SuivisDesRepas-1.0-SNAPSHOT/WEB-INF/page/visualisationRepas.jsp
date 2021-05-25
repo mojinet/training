@@ -1,4 +1,6 @@
-<%--
+<%@ page import="fr.modji.TP5_SuivisDesRepas.bo.Repas" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="fr.modji.TP5_SuivisDesRepas.bo.Aliments" %><%--
   Created by IntelliJ IDEA.
   User: Modji
   Date: 24/05/2021
@@ -19,20 +21,24 @@
         <table class="table table-primary">
             <thead>
             <tr>
-                <th scope="col">#</th>
+                <th scope="col">Id</th>
                 <th scope="col">Date</th>
                 <th scope="col">Heure</th>
-                <th scope="col">Actions</th>
+                <th scope="col">Aliments</th>
             </tr>
             </thead>
 
             <tbody>
+            <% for (Repas rp : (ArrayList<Repas>) request.getAttribute("repas")) { %>
             <tr>
-                <th scope="row">1</th>
-                <td>24/05/2021</td>
-                <td>16:31</td>
-                <td>détail</td>
+                <th scope="row"><%= rp.getId() %></th>
+                <td><%= rp.getDate() %></td>
+                <td><%= rp.getHeure() %></td>
+                <td><% for (Aliments alim : rp.getAliments()) { %>
+                    <%= alim.getAliment() + " " %>
+                <% } %></td>
             </tr>
+            <% } %>
             </tbody>
         </table>
     </div>

@@ -1,4 +1,4 @@
-package fr.modji.TP5_SuivisDesRepas.bll.bo;
+package fr.modji.TP5_SuivisDesRepas.bo;
 
 public class Aliments {
 
@@ -9,6 +9,11 @@ public class Aliments {
     public Aliments(int idRepas, int id, String aliment) {
         this.idRepas = idRepas;
         this.id = id;
+        this.aliment = aliment;
+    }
+
+    public Aliments(int idRepas, String aliment) {
+        this.idRepas = idRepas;
         this.aliment = aliment;
     }
 
