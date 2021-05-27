@@ -1,0 +1,24 @@
+/* LAYOUT */
+body{
+    min-height: 100vh;
+}
+.l_main{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+.l_header{
+    min-height: 100px;
+    background-color: bisque;
+}
+
+.l_main_content{
+    flex-grow: 1;
+}
+
+.l_footer{
+    min-height: 100px;
+    background-color: bisque;
+}

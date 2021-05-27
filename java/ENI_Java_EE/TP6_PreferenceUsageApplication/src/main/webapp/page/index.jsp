@@ -22,6 +22,6 @@
         <input type="submit" value="valider">
     </form>
     <p>Tu es venu <%= request.getAttribute("nbVisite")%> fois !</p>
-    <input type="button" onclick="window.location.href = '<%= request.getContextPath() %>/page/pageModifier.jsp';" class="btn btn-primary" value="Voir la page">
+    <input type="button" onclick="window.location.href = 'pageModifier.jsp';" class="btn btn-primary" value="Voir la page">
 </body>
 </html>
