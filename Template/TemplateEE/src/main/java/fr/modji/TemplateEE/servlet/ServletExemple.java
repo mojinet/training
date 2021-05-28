@@ -29,7 +29,7 @@ public class ServletExemple extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        // Vérifie si l'utilisateur à demander une supression
+        // Si l'utilisateur à demander une supression
         if (request.getParameter("del") != null){
             try {
                 this.exempleManager.delete(Integer.parseInt(request.getParameter("del")));
@@ -46,12 +46,18 @@ public class ServletExemple extends HttpServlet {
             throwables.printStackTrace();
         }
 
-        // Envois un parametre à la jsp
+        // Envois les instances d'Exemple de la base de données à la jsp
         request.setAttribute("exemples", exemples);
 
-        // affiche la page exemple.jsp
+        // bind le titre et le content
+        String pageTitle = "Le titre de ma page";
+        String pageLink = "/WEB-INF/jsp/exemple.jsp";
+        request.setAttribute("pageTitle", pageTitle);
+        request.setAttribute("pageLink",pageLink);
+
+        // forward sur template
         RequestDispatcher rd = null;
-        rd = request.getRequestDispatcher("/WEB-INF/jsp/exemple.jsp");
+        rd = request.getRequestDispatcher("/WEB-INF/jsp/template.jsp");
         rd.forward(request,response);
     }
 

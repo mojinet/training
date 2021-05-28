@@ -13,9 +13,7 @@
 
             <%-- MAIN CONTENT --%>
             <div class="l_main_content container">
-                <%-- Include main --%>
-                <jsp:include page="${ pageContent }"/>
-
+                <jsp:include page="${ pageLink }"/>
             </div>
 
             <%-- FOOTER --%>
