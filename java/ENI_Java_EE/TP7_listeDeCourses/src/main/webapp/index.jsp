@@ -1,3 +1,5 @@
+<%@ page import="fr.modji.listeDeCourses.bo.Liste" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -15,26 +17,18 @@
             <div class="main_title"><h1>Mes liste de courses</h1></div>
             <div class="main_section">
                 <!-- Liste des courses -->
-                <!-- Item 1 -->
+                <%
+                    List<Liste> listes = (List<Liste>) request.getAttribute("listes");
+                    for (Liste liste: listes ) { %>
                 <div class="list_item">
-                    <h2>Liste 1</h2>
+                    <h2> <%= liste.getNom() %> </h2>
                     <div class="list_item_logos">
-                        <a href="<%= request.getContextPath()%>/DetailPanier"><img src="rss/img/001-groceries.png" alt=""></a>
-                        <a href="<%= request.getContextPath()%>/Accueil"><img src="rss/img/002-cancel.png" alt=""></a>
-
+                        <a href="<%= request.getContextPath()%>/DetailPanier?id=<%= liste.getId() %>"><img src="rss/img/001-groceries.png" alt=""></a>
+                        <a href="<%= request.getContextPath()%>/Accueil?del=<%= liste.getId() %>"><img src="rss/img/002-cancel.png" alt=""></a>
                     </div>
                 </div>
-                <!-- Item 2 -->
-                <div class="list_item">
-                    <h2>Liste 2</h2>
-                    <div class="list_item_logos">
-                        <img src="rss/img/001-groceries.png" alt="">
-                        <img src="rss/img/002-cancel.png" alt="">
-                    </div>
-                </div>
+                <% } %>
             </div>
-            </div>
-            
         </div>
 
         <footer class="l_footer">

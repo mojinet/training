@@ -1,3 +1,7 @@
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="fr.modji.listeDeCourses.bo.Liste" %>
+<%@ page import="fr.modji.listeDeCourses.bo.Item" %>
+<%@ page import="java.io.PrintWriter" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
@@ -15,16 +19,12 @@
         <div class="main_title"><h1>Mon panier : Liste 1</h1></div>
         <div class="main_section">
             <!-- Liste des éléments du panier -->
-            <!-- Item 1 -->
-            <div class="panier_item">
-                <input type="checkbox">
-                <span>Sauce Tomate</span>
-            </div>
-            <!-- Item 2 -->
-            <div class="panier_item">
-                <input type="checkbox">
-                <span>Salade</span>
-            </div>
+            <% Liste maListe = (Liste) request.getAttribute("liste"); %>
+            <%= maListe.getNom() %>
+            <% for (Item item: maListe.getItemList() ) { %>
+            <input type="checkbox" name="chk" id="chk">
+            <span><%= item.getNom() %></span>
+            <% } %>
         </div>
     </div>
 

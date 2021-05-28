@@ -14,17 +14,35 @@
     <div class="l_main_content">
         <div class="main_title"><h1>Nouvelle liste</h1></div>
         <div class="main_section">
-            <!-- Liste des éléments du panier -->
-            <!-- Item 1 -->
-            <div class="panier_item">
-                <input type="checkbox">
-                <span>Sauce Tomate</span>
-            </div>
-            <!-- Item 2 -->
-            <div class="panier_item">
-                <input type="checkbox">
-                <span>Salade</span>
-            </div>
+
+            <!-- Input nom de la liste -->
+            <form action="NouveauPanier" method="post">
+                <label for="nom">Nom</label>
+                <input type="text" name="nom" id="nom" required>
+
+
+            <!-- Affiche les item de la liste-->
+                <div class="list_newPanier_items" style="border: black 1px solid; height: 300px; margin: 100px 0;">
+                    <div class="list_item">
+                        <p>Article 1</p>
+                        <a href="<%= request.getContextPath()%>/NouveauPanier?del=1">
+                            <img src="<%=request.getContextPath()%>/rss/img/002-cancel.png" alt="">
+                        </a>
+                    </div>
+                    <div class="list_item">
+                        <p>Article 2</p>
+                        <a href="<%= request.getContextPath()%>/NouveauPanier?del=2">
+                            <img src="<%=request.getContextPath()%>/rss/img/002-cancel.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            <!-- Ajout d'un item -->
+                <label for="article">Article</label>
+                <input type="text" name="article" id="article" required>
+                <button type="submit">
+                    <img src="<%=request.getContextPath() %>/rss/img/003-add.png" alt="">
+                </button>
+            </form>
         </div>
     </div>
 
@@ -32,7 +50,6 @@
 
     <footer class="l_footer">
         <a href="<%= request.getContextPath()%>/Accueil"><img src="<%= request.getContextPath()%>/rss/img/004-next.png" alt=""></a>
-        <a href="#"><img src="<%= request.getContextPath()%>/rss/img/005-refresh.png" alt=""></a>
     </footer>
 </main>
 </body>
