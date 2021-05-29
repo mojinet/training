@@ -6,31 +6,7 @@
 
     <!-- Gestion des pages d'erreur -->
     <error-page>
-        <error-code>404</error-code>
         <location>/ServletError</location>
     </error-page>
-    <error-page>
-        <error-code>403</error-code>
-        <location>/ServletError</location>
-    </error-page>
-    <error-page>
-        <error-code>401</error-code>
-        <location>/ServletError</location>
-    </error-page>
-    <error-page>
-        <error-code>402</error-code>
-        <location>/ServletError</location>
-    </error-page>
-    <error-page>
-        <error-code>500</error-code>
-        <location>/ServletError</location>
-    </error-page>
-    <error-page>
-        <error-code>501</error-code>
-        <location>/ServletError</location>
-    </error-page>
-    <error-page>
-        <error-code>500</error-code>
-        <location>/ServletError</location>
-    </error-page>
+
 </web-app>
