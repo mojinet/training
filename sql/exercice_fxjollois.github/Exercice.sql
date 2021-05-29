@@ -495,10 +495,12 @@ WHERE NOT EXISTS (
 ---------------------------------------------------------
 -- Recapitulatif 1 
 ---------------------------------------------------------
---Partie 1
--- a :
--- b :
--- c : 
+--Partie 2
+-- a : Lister le contenu de la table Seances
+SELECT * FROM seances
+-- b : Lister les sportifs par ordre croissant d'âge
+SELECT * FROM sportifs ORDER BY age ASC
+-- c : Lister les 5 gymnases les plus grands
 -- d :
 -- e :
 -- f :
