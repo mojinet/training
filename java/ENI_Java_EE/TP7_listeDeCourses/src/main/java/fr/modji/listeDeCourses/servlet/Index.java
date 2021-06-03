@@ -25,7 +25,7 @@ public class Index extends HttpServlet {
 
         // affiche la page index.jsp
         RequestDispatcher rd = null;
-        rd = request.getRequestDispatcher("/index.jsp");
+        rd = request.getRequestDispatcher("/WEB-INF/jsp/index.jsp");
         rd.forward(request,response);
     }
 
