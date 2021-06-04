@@ -539,16 +539,29 @@ FROM Sportifs;
 
 -- Partie 2
 -- Calculs arithmétiques
--- a :
--- b :
+-- a : Afficher en heure la durée de chaque séance (stockée en minute dans la table)
+select sum(duree/60) as "Nombre d'heure"
+from seances;
+
+-- b : Convertir la surface (en m2 dans la table) en pieds carrés (voir la définition) des gymnases de "Pierrefitte"
+select *, (surface/0.09290304) as "Surface Pied carrés"
+from gymnases
+where ville ="PIERREFITTE";
 
 -- Fonctions sur chaines de caracteres
--- c :
--- d :
+-- c : Concaténer le nom des sportifs avec la première lettre du prénom suivie d'un point, le tout en minuscules (par exemple "jollois f.")
+SELECT LOWER(SUBSTR(prenom, 1,1) || "." || nom) as "Nom complet"
+FROM sportifs;
+
+-- d : Afficher les gymnases situées sur une place (cf Adresse)
+SELECT * from gymnases
+WHERE Adresse LIKE "%place%";
 
 -- Fonctions sur les dates
--- e :
--- f :
+-- e : Donner la date du jour
+select DATE("NOW");
+
+-- f : Donner le jour de la semaine du 1er janvier de l'année de naissance de chaque sportif
 
 -- Traitement conditionnel
 -- g :
