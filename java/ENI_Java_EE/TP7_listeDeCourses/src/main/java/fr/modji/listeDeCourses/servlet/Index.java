@@ -13,9 +13,11 @@ import java.util.List;
 public class Index extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // on créer les listes puis les ajoute dans une List
+        // simu bdd : selectAll() sur les listes
         Liste listeCourse = new Liste("ma liste 1");
+        listeCourse.setId(1);
         Liste listeCourse2 = new Liste("ma liste 2");
+        listeCourse2.setId(2);
         List<Liste> listes = new ArrayList<>();
         listes.add(listeCourse);
         listes.add(listeCourse2);

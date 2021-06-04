@@ -14,7 +14,11 @@ import java.util.List;
 public class DetailPanier extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // on créer une liste
+        // on recupere l'id
+        int id = Integer.parseInt(request.getParameter("id"));
+        System.out.println(id);
+
+        // simu bdd : selectListe(id)
         Liste listeCourse = new Liste("ma liste1");
         listeCourse.addItem(new Item("saucisse"));
         listeCourse.addItem(new Item("asperge"));

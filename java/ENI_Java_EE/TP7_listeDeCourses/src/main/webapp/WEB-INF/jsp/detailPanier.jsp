@@ -1,3 +1,5 @@
+<%@ page import="fr.modji.listeDeCourses.bo.Liste" %>
+<%@ page import="fr.modji.listeDeCourses.bo.Item" %>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="fr">
@@ -21,20 +23,13 @@
         </div>
         <div class="main_content_t">
             <!-- Java -->
-            <div class="main_content__items__item_t">
-                <input type="checkbox" name="chk_article" id="chk_article1">
-                <label for="chk_article1">Article A</label>
-            </div>
-
-            <div class="main_content__items__item_t">
-                <input type="checkbox" name="chk_article" id="chk_article2">
-                <label for="chk_article2">Article B</label>
-            </div>
-
-            <div class="main_content__items__item_t">
-                <input type="checkbox" name="chk_article" id="chk_article3">
-                <label for="chk_article3">Article C</label>
-            </div>
+            <% Liste listeCourse = (Liste) request.getAttribute("liste");
+                for (Item article : listeCourse.getItemList() ) { %>
+                    <div class="main_content__items__item_t">
+                        <input type="checkbox" name="chk_article" id="chk_article<%=article.getId()%>" class="chk_article">
+                        <label for="chk_article<%=article.getId()%>"><%=article.getNom()%></label>
+                    </div>
+            <% } %>
             <!-- Java -->
         </div>
     </section>

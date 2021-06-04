@@ -69,7 +69,7 @@ input{
     align-items: center;
     gap: 0 10px;
 }
-#chk_article{
+.chk_article{
     width: 50px;
     height: 50px;
     margin: 0px;

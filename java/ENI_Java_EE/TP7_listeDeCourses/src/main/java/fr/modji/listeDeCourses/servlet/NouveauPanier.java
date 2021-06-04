@@ -1,9 +1,13 @@
 package fr.modji.listeDeCourses.servlet;
 
+import fr.modji.listeDeCourses.bo.Item;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = "NouveauPanier", value = "/NouveauPanier")
 public class NouveauPanier extends HttpServlet {
@@ -23,11 +27,25 @@ public class NouveauPanier extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //recupere les input
-        String nomListe = request.getParameter("nom");
-        String nomArtcile =  request.getParameter("article");
-        // debug
-        System.out.println("nom de la liste : " + nomListe + " ajoute l'article :" + nomArtcile);
+        //Recupere le nom de la liste
+        String listName = request.getParameter("nom_list");
+        System.out.println(listName);
+        String articleName = request.getParameter("add_item");
+        System.out.println(articleName);
+
+        // enregistre en base de données : insert into...
+        // recupere l'id de la liste
+
+        // Recupere les items deja presente en bdd : selectAll(id)
+        List<Item> itemList = new ArrayList<>();
+        itemList.add(new Item("pomme"));
+        itemList.add(new Item("poire"));
+        itemList.add(new Item("mûre"));
+        itemList.add(new Item("banane"));
+
+        // envois la réponse
+        request.setAttribute("listName", listName);
+        request.setAttribute("itemList", itemList);
 
         //redirection sur le get
         doGet(request,response);
