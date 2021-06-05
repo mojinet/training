@@ -562,12 +562,56 @@ WHERE Adresse LIKE "%place%";
 select DATE("NOW");
 
 -- f : Donner le jour de la semaine du 1er janvier de l'année de naissance de chaque sportif
+SELECT
+        Prenom || " " || nom AS Idendité,
+        STRFTIME("%w", DATE("NOW", "-" || age || " year", "start of year", "start of month")) AS "Année Naissance"
+FROM sportifs;
 
 -- Traitement conditionnel
--- g :
--- h :
+-- g : Afficher une nouvelle variable nommée Civilite, qui prendra "M." pour les hommes et "Mme" pour les femmes
+SELECT *,
+       CASE Sexe
+           WHEN "F" THEN "Mme"
+           WHEN "M" THEN "M."
+           ELSE Sexe
+           END AS civilité
+FROM sportifs;
+
+-- h :Afficher une nouvelle variable TypeGymnase, qui prendra comme valeur "petit" si la surface est inférieure strictement à 400 m2, "moyen" si elle est entre 400 et 550 m2, et "grand" si elle est strictement supérieure à 550 m2
+SELECT *,
+       CASE
+           WHEN surface < 400 THEN "Petit"
+           WHEN surface BETWEEN 400 AND 550 THEN "Moyen"
+           ELSE "Grand"
+           END AS Taille
+FROM gymnases;
 
 -- Partie 3
+-- Dénombrements
+-- a :Compter le nombre de sportifs
+SELECT COUNT(*) AS "Nombre sportif"
+FROM sportifs;
+
+-- b :Compter le nombre de sportifs ayant un conseiller
+SELECT COUNT(*) AS "Nombre sportif"
+FROM sportifs
+WHERE IdSportifConseiller IS NOT NULL;
+
+-- c :Compter le nombre de villes distinctes
+SELECT COUNT(Ville) AS "Nombre de ville"
+FROM Gymnases;
+
+-- Calculs statistiques simples
+-- d :
+-- e :
+
+-- Agrégats selon attribut(s)
+-- f :
+-- g :
+
+-- Restriction sur agrégats
+-- h :
+
 -- Partie 4
 -- Partie 5
 
