@@ -602,15 +602,29 @@ SELECT COUNT(Ville) AS "Nombre de ville"
 FROM Gymnases;
 
 -- Calculs statistiques simples
--- d :
--- e :
+-- d :Calculer la surface moyenne des gymnases
+SELECT AVG(surface) AS "Surface moyenne"
+FROM gymnases;
+
+-- e :Calculer l'âge moyen, l'âge minimum et l'âge maximum des sportifs
+SELECT AVG(age) AS "Age moyen",
+       MIN(age) AS "Age minimum",
+       MAX(age) AS "Age maximal"
+FROM sportifs;
 
 -- Agrégats selon attribut(s)
--- f :
--- g :
+-- f :Calculer le nombre de sportifs par sexe, ainsi que l'âge moyen
+SELECT sexe, COUNT(sexe), AVG(age)
+FROM sportifs
+GROUP BY sexe;
+
+-- g :Calculer pour chaque ville la surface du plus petit et du plus grand gymnase
+SELECT MIN(surface) as Min, MAX(surface) AS Max, ville
+FROM gymnases
+GROUP BY ville;
 
 -- Restriction sur agrégats
--- h :
+-- h :Lister les villes ayant plus de 5 gymnases, dans l'ordre décroissant du nombre de gymnases
 
 -- Partie 4
 -- Partie 5
