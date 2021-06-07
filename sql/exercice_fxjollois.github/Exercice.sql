@@ -625,9 +625,29 @@ GROUP BY ville;
 
 -- Restriction sur agrégats
 -- h :Lister les villes ayant plus de 5 gymnases, dans l'ordre décroissant du nombre de gymnases
+SELECT COUNT(NomGymnase) AS "Nombre de gymnases", ville
+FROM gymnases
+GROUP BY ville
+HAVING "Nombre de gymnases" >= 5
+ORDER BY "Nombre de gymnases" ASC;
 
 -- Partie 4
--- Partie 5
+-- a :Lister les 5 sportifs masculins les plus âgés
+SELECT *
+FROM Sportifs
+WHERE Sexe = "M" OR Sexe = "m"
+ORDER BY Age DESC
+LIMIT 5;
+
+-- b :Lister les villes dans lesquelles il y a des gymnases d'au moins 500 m2
+
+-- c :Concaténer le nom des sportifs avec la première lettre du prénom suivie d'un point, en tenant compte des prénoms composés, suivi de l'année de naissance (par exemple "JOLLOIS F.-X. - 1977")
+
+-- d :Lister les identifiants de sports ayant le plus de joueur
+
+-- e :Donner le nombre de sportifs pour la répartition "junior" (de 20 à 24 ans), "senior 1" (de 25 à 30), "senior 2" (de 31 à 45)
+
+-- f :Sachant des les heures de début de séances sont stockées en réel, avec 19.3 pour "19h30" par exemple, calculer l'heure de fin de chaque séance
 
 -- -------------------------------------------------------
 -- Recapitulatif 2
