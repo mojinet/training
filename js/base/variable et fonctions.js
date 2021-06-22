@@ -40,3 +40,54 @@ var noel2018 = new Date(2018,11,25); // 11 = decembre
 console.log(noel2018);
 console.log(noel2018.toLocaleDateString());
 console.log(noel2018.getDate(),noel2018.getMonth(), noel2018.getDay());
+
+//Création d'un objet
+var objet ={
+    cle: "maClef",
+    afficher:function(){console.log("la clé est : " + this.cle);}
+}
+// On peut lui ajouter des propriété
+objet.cle2 = "maClef2";
+
+// Lecture des attributs
+console.log(objet.cle2);
+objet.afficher();
+
+// Déclarer une classe
+var Sport = function(nom, description){
+    // définir les attributs
+    this.nom = nom || "pas de nom";
+    this.description = description || "NC";
+    // fonction
+    this.afficher = function(){
+        console.log(this.nom, this.description)
+    }
+}
+
+var foot = new Sport("foot","un jeu de balle");
+foot.afficher();
+
+class Sport2{
+    constructor(nom, description) {
+        this.nom = nom || "NC";
+        this.description = description || "NC";
+    }
+
+    afficher(){
+        console.log(this.nom, this.description)
+    }
+}
+
+var handBall = new Sport2("handBall","un jeu de balle avec les mains");
+handBall.afficher();
+
+// héritage
+class SportDeCombat2 extends Sport2{
+    test(){
+        console.log("nouvelle methode");
+    }
+};
+
+var sc2 = new SportDeCombat2("boxe","ça tappe");
+sc2.afficher();
+sc2.test();
