@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajout de phrase dynamique</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="container">
+<div>
+    <div class="mt-5 mb-3">
+        <label for="savoir" class="form-label">Votre phrase*</label>
+        <input type="text" class="form-control" id="savoir" required>
+    </div>
+    <div class="mb-3">
+        <label for="auteur" class="form-label">Votre pseudo*</label>
+        <input type="text" class="form-control" id="auteur" required>
+    </div>
+    <div class="mb-3">
+        <label for="date" class="form-label">Date</label>
+        <input type="date" class="form-control" id="date">
+    </div>
+    <button type="submit" class="btn btn-danger col-12" id="submit">Ajouter</button>
+</div>
+<span>Filtres : </span>
+<input type="radio" id="defaut" name="choice" value="defaut" checked>
+<label for="defaut">Defaut</label>
+<input type="radio" id="ordreAlpha" name="choice" value="ordreAlpha">
+<label for="ordreAlpha">Ordre alphabétique</label>
+<input type="radio" id="ordreChrono" name="choice" value="ordreChrono">
+<label for="ordreChrono">Ordre chronologique</label>
+
+
+<div class="mt-5" id="mainZone"></div>
+<script src="app.js"></script>
+</body>
+</html>
