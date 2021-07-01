@@ -1,0 +1,5 @@
+const USERS = [
+    {id: 1, title: 'User 1'},
+    {id: 2, title: 'User 2'},
+    {id: 3, title: 'User 3'}
+];
