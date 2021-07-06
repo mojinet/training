@@ -38,3 +38,20 @@ cp.addEventListener('input',function(){ // input = a chaque saisie d'un caracter
             });
     }
 })
+
+/***************/
+/* Async Await */ // fait la meme chose qu'au dessus
+/***************/
+
+async function maFonction() {
+    try{
+        const response = await fetch("https://geo.api.gouv.fr/communes?codePostal=77100");
+        const data = await response.json();
+        console.log(data);
+    }catch(e){
+        console.log(e);
+    }
+}
+
+maFonction();
+
