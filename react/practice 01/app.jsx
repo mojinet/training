@@ -51,4 +51,48 @@ class Welcome extends React.Component{
     }
 }
 
-ReactDOM.render(<Welcome name="Jean-Baptiste" subname="Cochinard" start={10}>le child</Welcome>, document.querySelector("#root"));
+ReactDOM.render(<Welcome name="Jean-Baptiste" subname="Cochinard" start={10}>le child</Welcome>, document.querySelector("#root"))
+
+class Timer extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {n: 0, timer: null}
+    }
+
+    click(e){
+        if (this.state.timer == null){
+            this.start()
+        }else{
+            this.stop()
+        }
+    }
+
+    start(){
+        this.setState({
+            timer: setInterval(this.increment.bind(this),1000)
+        })
+    }
+
+    stop(){
+        this.setState({timer: clearInterval(this.state.timer)})
+    }
+
+    increment(){
+        this.setState({n: this.state.n + 1})
+    }
+
+    reini(){
+        this.setState({n: 0})
+        this.stop()
+    }
+
+    render(){
+        return  <div>
+                    Compteur : {this.state.n} 
+                    <button onClick={this.click.bind(this)}>{this.state.timer == null ? 'Lancer' : 'Pause'}</button>
+                    <button onClick={this.reini.bind(this)}>Remetre à 0</button>
+                </div>
+    }
+}
+
+ReactDOM.render(<Timer/>,document.querySelector('#cpt'))
