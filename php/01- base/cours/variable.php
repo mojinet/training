@@ -21,4 +21,7 @@ empty($var1);               // test si la variable est vide
 unset($var1);               // suprimme une variable
 settype($var1, 'integer');  // convertion explicite en integer
 
+// variable global
+global $a; // definie $a en tant que variable global
+$GLOBALS['b'] = 10; // ajoute 'b' en tant que variable dans un tableau global
 ?>

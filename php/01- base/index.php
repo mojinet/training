@@ -14,7 +14,9 @@
         <li><a href="cours/variable.php">Variable</a></li>
         <li><a href="cours/tableaux.php">Tableaux</a></li>
         <li><a href="cours/condition et boucle.php">condition et boucle</a></li>
-        
+        <li><a href="cours/fonction utiles.php">fonction utiles</a></li>
+        <li><a href="cours/fonction.php">fonction</a></li>
+        <li><a href="cours/expression rationnel.php">expression rationnel</a></li>
     </ul>
 
     <h2>TP</h2>
