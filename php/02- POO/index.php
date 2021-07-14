@@ -14,7 +14,8 @@
         <li><a href="cours/class abstract.php">class abstraite</a></li>
         <li><a href="cours/exception.php">exception</a></li>
         <li><a href="cours/espace de nom.php">espace de nom</a></li>
-        <li><a href=""></a></li>
+        <li><a href="cours/serialisation.php">serialisation</a></li>
+        <li><a href="cours/clonage.php">clonage</a></li>
     </ul>
 </body>
 </html>

@@ -1,4 +1,6 @@
 <?php
+namespace mesPersonnages;
+
 class Personnage{
     // attribute
     protected $name;
