@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TodoLight</title>
+    <script src="https://unpkg.com/vue@next" defer></script>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <main id="root">
+        <h1>Vue.js training :)</h1>
+
+        <!-- Affiche le contenu de la variable message -->
+        <span>{{ message }}</span>
+
+        <!-- Utilise la directive v-bind pour bindé une valeur qui se trouve dans les states, on peut utiliser : en raccourcis -->
+        <button v-bind:title="message">Survol Moi</button><hr>
+
+        <!-- Utilise la directive v-for pour afficher tout les éléments -->
+        <p v-for="todo in todos" @click="inverser"> {{todo}} </p><hr>
+        <p v-for="objet in listeObjet"> id: {{objet.id}} content: {{objet.content}} </p><hr>
+
+        <!-- Ajoute un evement avec v-on:click ont peut aussi mettre @click -->
+        <button v-on:click="inverser">Reverse</button> <br>
+
+        <!-- Envoyer des données de l'interface vers le code-->
+        <input type="text" name="input" v-model="input">
+        <a href="#" @click="ajouter">Ajoute Moi</a>
+
+        <!-- Utilise la directive v-if-->
+        <p v-if="input != ''">Vous etes en train d'écrire un truc !</p><br>
+
+        <!-- Composant -->
+        <test text="Je suis un texte"></test>
+    </main>
+</body>
+</html>
