@@ -1,13 +1,40 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Page de test :)</h1>
-</body>
-</html>
+{# On doit hérité du gabarit #}
+{% extends 'base.html.twig' %}
+
+{# On définis le contenu du block body #}
+{% block body %}
+
+    {# Initialise des variable #}
+    {% set maVariable = "coucou" %}
+    {% set check = false %}
+    {% set unTableau = ["carotte","tomate","patate"] %}
+    {% set unObjet = { 'nom': 'Jean', 'age': 33} %}
+
+    {# Affiche la variable #}
+    {{ maVariable }}
+
+    {# Contidion #}
+    {% if check == true %}
+        <h2>C'est vrai !</h2>
+    {% elseif check == false %}
+        <h2>C'est faux !</h2>
+    {% endif %}
+
+    {# Boucle For #}
+    {% for legume in unTableau %}
+        {{ loop.index }}    {# Index en cours #}
+        {{ loop.last }}     {# Si c'est le dernier #}
+        <p>{{ legume }}</p>
+    {% else %}
+        <p>Aucun légume trouvé !</p>
+    {% endfor %}
+
+    {# Boucle For key/value #}
+    {% for key, val in unObjet %}
+        <p>{{ key }} => {{ val }}</p>
+    {% endfor %}
+{% endblock %}
+
+{# On définis le contenu du block title
+parent() recupere le titre du parent #}
+{% block title %} {{ parent() }} Test {% endblock %}

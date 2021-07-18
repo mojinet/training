@@ -1,14 +1,10 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Coucou</h1>
-</body>
-</html>
+{# On doit hérité du gabarit #}
+{% extends 'base.html.twig' %}
+
+{# On définis le contenu du block body #}
+{% block body %} <h1>Voici la home {{ prenom|raw }}</h1> {% endblock %}
+
+{# On définis le contenu du block title
+parent() recupere le titre du parent #}
+{% block title %} {{ parent() }} Home {% endblock %}
 
